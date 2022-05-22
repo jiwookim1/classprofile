@@ -21,7 +21,7 @@
     "tsify": "^4.0.0",
     "typescript": "^2.8.3",
     "uglify-js": "^3.4.0",
-    "watchify": "^3.11.0"
+    "watchify": "^4.0.0"
   },
   "scripts": {
     "dev": "watchify main.ts -p [ tsify ] -o build/bundle.js -v",

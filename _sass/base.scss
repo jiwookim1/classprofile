@@ -81,10 +81,10 @@ section {
 }
 
 .bg-cover {
-  background-image:url('../img/cover.png');
+  /* background-image:url('../img/cover.png'); */
   background-repeat:no-repeat;
   background-size:cover;
-  background-color: $bg-8;
+  background-color: rgb(235, 235, 20);
   background-position: center center;
   height: 100vh;
   .content {
