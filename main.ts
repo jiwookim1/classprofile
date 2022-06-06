@@ -15,7 +15,7 @@ import { renderGeographicMap } from './shared/geographicmap.js';
 import { TRANSFERRED,TERM_TRANSFERRED,REASONS_TRANSFERRED, DISLIKED_COURSES_TRANSFERRED,REGRET_TRANSFFERED } from './data/transfers'
 import { EXTRACURRICULARS, GROCERY_STORES, TRAVEL_LOCATIONS, RESTAURANTS, SLEEP_TIME, SLEEP_DURATION, COOKING_FREQUENCY, EATING_OUT_FREQUENCY, FAVOURITE_EXERCISE, DESIGN_TEAM, PARTIES, HAPPY_THINGS, NEW_HOBBIES, PROGRAMMING_LANGUAGE, EDITOR, MOBILE_OS } from './data/lifestyle';
 import { FAVOURITE_MANDATORY, FAVOURITE_ELECTIVE, DISLIKED_MANDATORY, ATTENDANCE, GRADES, PARENT_GRADES, ATTENDANCE_GRADE, CAMPUS_LOCATION_PRE, CAMPUS_LOCATION_POST, FAVOURITE_PROF_COUNT, FAILING, OPTIONS, OVERLOADING, OVERLOADING_REASONS, LARGEST_WORKLOAD, TRANSFER_FROM, ENRICHED_VS_GRADES, SLEEP_VS_GRADES, ENTRANCE_VS_GRADES, GRADES_OFFICIAL } from './data/academics';
-import { INTERNATIONAL, PARENT_EDUCATION, ETHNICITY, GENDER, YEAR_OF_BIRTH, SEXUAL_ORIENTATION, HOME_LOCATION, FAMILY_INCOME, IMMIGRATED, SIBLINGS, ENRICHED_PROGRAM, CEGEP, CEGEP_ATTENDED, MOTHER_TONGUE, PROGRAMMING, CAT_OR_DOG, ADMISSION_AVERAGE, EMIGRATED_COUNTRY, NUM_LANGUAGE, LANGUAGE_KNOWN, SIBLINGS_PARENTS } from './data/background';
+import { PARENT_EDUCATION, ETHNICITY, GENDER, YEAR_OF_BIRTH, SEXUAL_ORIENTATION, FAMILY_INCOME, SIBLINGS, MOTHER_TONGUE,  CAT_OR_DOG, NUM_LANGUAGE, LANGUAGE_KNOWN, SIBLINGS_PARENTS } from './data/background';
 import { ORIGINAL, CHOOSE_PROGRAM, GENDER_RATING } from './data/outcome';
 import { SALARY, WORK_LOCATION, FAVOURITE_LOCATION, HACKATHON_SALARY, SIDE_SALARY, ADMISSION_SALARY, COMPANY_WORK_COUNT, FAVOURITE_COMPANIES, GRADE_SALARY, GENDER_SALARY,LATE_INTERVIEWER, LATE_INTERVIEW, MISSED_INTERVIEW, FAVOURITE_COOP, FAVOURITE_COOP_REASON, COOP_RATINGS, COOP_TYPES, COOP_BREAKDOWN, COOP_JOBS } from './data/coop';
 import { BURNOUT, FIGHTS, REDDIT_USAGE, CRYING, TRANSFER_THOUGHTS, DROPOUT_THOUGHTS, SE21_GRAD } from './data/misc';
@@ -66,13 +66,11 @@ const coop_breakdown_legend = {
 };
 
 const siblings_parents_legend = {
-  'siblings-inc-zero': '0-50k / year',
-  'siblings-inc-one': '50k-100k / year',
-  'siblings-inc-two': '100k-150k / year',
-  'siblings-inc-three': '150k-200k / year',
-  'siblings-inc-four': '200k-250k / year',
-  'siblings-inc-five': '250k-300k / year',
-  'siblings-inc-size': '300k+ / year',
+  'siblings-inc-zero': 'High School',
+  'siblings-inc-one': 'Bachelors/College',
+  'siblings-inc-two': 'Masters',
+  'siblings-inc-three': 'Doctorates',
+  
 };
 
 const coop_jobs = {
@@ -87,18 +85,13 @@ window.onload = () => {
     fullWidth: (document.querySelector('div.full') as any).offsetWidth,
     isMobile: util.isMobile()
   };
-  renderCoop(options);
   renderLifestyle(options);
   renderAcademics(options);
   renderBackground(options);
-  renderOutcome(options);
-  renderFinances(options);
   renderHealth(options);
   renderMisc(options);
   renderFuture(options);
-  renderTransfers(options);
   renderRelationships(options);
-  renderExchange(options);
   setActive(0);
   setMultiBarActive("ethnicity-all", ethnicity);
   setMultiBarActive("loc-1a", campus_location_term_pre);
@@ -536,33 +529,14 @@ function renderAcademics(options) {
 
 function renderBackground(options) {
   renderMultiSeriesHorizontalBarChat(d3.select('#ethnicity'), ETHNICITY, 400, 300, true, {"ethnicity-all": 0, "ethnicity-women": 1, "ethnicity-men": 2});
-  renderPieChart(d3.select('#international'), INTERNATIONAL, options.width * 0.75, options.width * 0.75);
   renderHorizontalBarChat(d3.select('#parent-education'), PARENT_EDUCATION, options.width, 280, true);
   renderPieChart(d3.select('#gender'), GENDER, options.width * 0.75, options.width * 0.75);
-  renderHorizontalBarChat(d3.select('#family-income'), FAMILY_INCOME, 400, 300, false);
   renderPieChart(d3.select('#year-of-birth'), YEAR_OF_BIRTH, options.width * 0.75, options.width * 0.75);
   renderPieChart(d3.select('#sexual-orientation'), SEXUAL_ORIENTATION, options.width * 0.75, options.width * 0.75);
-  renderHorizontalBarChat(d3.select('#home-location'), HOME_LOCATION, 400, 300, false);
-  renderPieChart(d3.select('#immigrated'), IMMIGRATED, options.width * 0.75, options.width * 0.75);
   renderHorizontalBarChat(d3.select('#siblings'), SIBLINGS, 400, 300, false);
-  renderHorizontalBarChat(d3.select('#enriched-program'), ENRICHED_PROGRAM, 400, 300, false);
-  renderPieChart(d3.select('#cegep'), CEGEP, options.width * 0.75, options.width * 0.75);
-  renderHorizontalBarChat(d3.select('#cegep-attended'), CEGEP_ATTENDED, 400, 300, true);
   renderHorizontalBarChat(d3.select('#mother-tongue'), MOTHER_TONGUE, 400, 300, true);
-  renderPieChart(d3.select('#programming'), PROGRAMMING, options.width * 0.75, options.width * 0.75);
-  renderHistogram(d3.select('#admission-average'),
-    ADMISSION_AVERAGE,
-    options.width,
-    200,
-    {
-      binCount: 7,
-      yAxisTitle: 'Number of Students',
-      xAxisTitle: 'High School Admission Average',
-    }
-  );
   renderHorizontalBarChat(d3.select('#num-languages'), NUM_LANGUAGE, options.width, 280, false);
   renderHorizontalBarChat(d3.select('#known-languages'), LANGUAGE_KNOWN, options.width, 280, true);
-  renderHorizontalBarChat(d3.select('#emigrated'), EMIGRATED_COUNTRY, options.width, 280, true);
   renderGroupedBarChart(d3.select('#siblings-parents'), SIBLINGS_PARENTS, options.width, 250, siblings_parents_legend,
   {
     yAxisTitle: 'Number of Students',

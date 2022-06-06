@@ -1,33 +1,18 @@
-let INTERNATIONAL = [{
-  'name': 'Canadian',
-  'value': 64,
-}, {
-  'name': 'International',
-  'value': 6,
-}, {
-  'name': 'Prefer not to disclose',
-  'value': 2,
-}]
-
-
 let PARENT_EDUCATION = [{
   "name": "Masters",
-  "value": 31
+  "value": 6
     }, {
-  "name": "Bachelors",
+  "name": "Bachelors/College",
   "value": 19
   }, {
   "name": "Prefer not to disclose",
-  "value": 1
+  "value": 7
   }, {
   "name": "Doctorates",
-  "value": 10
+  "value": 1
   }, {
   "name": "High school",
-  "value": 4
-  }, {
-  "name": "College Diploma",
-  "value": 6
+  "value": 3
   }];
 
 
@@ -135,247 +120,107 @@ let ETHNICITY = [{
 
 let GENDER = [{
   "name": "Men",
-  "value": 55
+  "value": 20
 }, {
   "name": "Women",
   "value": 15
 }, {
-  "name": "Non-Binary",
+  "name": "Cookie Monster",
   "value": 1
-}, {
-  "name": "Prefer not to disclose",
-  "value": 1
-}];
+},];
 
 let YEAR_OF_BIRTH = [{
-  "name": "1996",
-  "value": 2
+  "name": "2004",
+  "value": 24
 }, {
-  "name": "1997",
-  "value": 9
-}, {
-  "name": "1998",
-  "value": 55
-}, {
-  "name": "1999",
-  "value": 6
+  "name": "2003",
+  "value": 11
 }];
 
 let SEXUAL_ORIENTATION = [{
   "name": "Heterosexual",
-  "value": 63
-}, {
-  "name": "Homosexual",
-  "value": 2
-}, {
-  "name": "Bisexual",
-  "value": 3
-}, {
-  "name": "Prefer not to disclose",
-  "value": 4
-}];
-
-let HOME_LOCATION = [{
-  "name": "GTA / Toronto",
-  "value": 31
-}, {
-  "name": "Kitchener / Waterloo",
-  "value": 3
-}, {
-  "name": "Other Ontario",
-  "value": 13
-}, {
-  "name": "Alberta",
-  "value": 5
-}, {
-  "name": "British Columbia",
-  "value": 4
-}, {
-  "name": "New Brunswick",
-  "value": 2
-}, {
-  "name": "Quebec",
-  "value": 5
-}, {
-  "name": "China",
-  "value": 5
-}, {
-  "name": "India",
-  "value": 1
-}, {
-  "name": "Prefer not to disclose",
-  "value": 3
-}];
-
-let IMMIGRATED = [{
-  "name": "Yes",
   "value": 25
 }, {
-  "name": "No",
-  "value": 39
+  "name": "Bisexual",
+  "value": 4
+},{
+  "name": "Non-binary",
+  "value": 1
 }, {
-  "name": "Not Applicable (International Student)",
-  "value": 6
+  "name": "Prefer not to disclose",
+  "value": 5
 }];
 
-let EMIGRATED_COUNTRY = [{
-  "name": "BELGIUM",
-  "value": 1
-}, {
-  "name": "CHINA",
-  "value": 10
-}, {
-  "name": "ENGLAND",
-  "value": 1
-}, {
-  "name": "INDIA",
-  "value": 4
-}];
+
 
 let NUM_LANGUAGE = [{
   "name": "1",
-  "value": 14
+  "value": 0
 }, {
   "name": "2",
-  "value": 18
+  "value": 33
 }, {
   "name": "3",
-  "value": 5
+  "value": 2
 }, {
   "name": "4",
   "value": 1
 }];
 
 let LANGUAGE_KNOWN = [{
-  "name": "FRENCH",
+  "name": "VIETNAMESE",
+  "value": 28
+}, {
+  "name": "ENGLISH",
+  "value": 36
+}, {
+  "name": "CHINESE",
+  "value": 4
+}, {
+  "name": "KOREAN",
   "value": 8
 }, {
-  "name": "FARSI",
+  "name": "HAITIAN",
   "value": 1
 }, {
-  "name": "MANDARIN",
-  "value": 10
-}, {
-  "name": "HINDI",
-  "value": 3
-}, {
-  "name": "PUNJABI",
-  "value": 2
-}, {
-  "name": "TELUGU",
+  "name": "TANZANIAN",
   "value": 1
 }, {
-  "name": "TAMIL",
+  "name": "FRENCH",
   "value": 1
-}, {
-  "name": "CANTONESE",
-  "value": 2
-}, {
-  "name": "CHINESE (UNSPECIFIED)",
-  "value": 2
 }];
 
 let SIBLINGS = [{
   "name": "0",
-  "value": 22
+  "value": 3
 }, {
   "name": "1",
-  "value": 33
+  "value": 19
 }, {
   "name": "2",
-  "value": 12
+  "value": 11
 }, {
-  "name": "5",
+  "name": "3",
   "value": 1
 }, {
-  "name": "Prefer not to disclose",
-  "value": 4
-}];
-
-let ENRICHED_PROGRAM = [{
-  "name": "None",
-  "value": 36
-}, {
-  "name": "AP",
-  "value": 16
-}, {
-  "name": "IB",
-  "value": 12
-}, {
-  "name": "TOPS",
+  "name": "4",
   "value": 1
 }, {
-  "name": "Sport Études",
-  "value": 1
-}, {
-  "name": "A Levels",
-  "value": 1
-}, {
-  "name": "Gifted",
-  "value": 2
-}];
-
-let CEGEP = [{
-  "name": "Yes, but I only attended partially (did not graduate)",
-  "value": 5
-}];
-
-let CEGEP_ATTENDED = [{
-  "name": "Applied Sciences",
-  "value": 1
-}, {
-  "name": "Science pure and applied",
-  "value": 2
-}, {
-  "name": "Pure science",
-  "value": 1
-}, {
-  "name": "Computer Science and Mathematics",
-  "value": 1
+  "name" : "8",
+  "value" : 1
 }];
 
 let MOTHER_TONGUE = [{
-  "name": "English",
-  "value": 38
+  "name": "Vietnamese",
+  "value": 28
 }, {
-  "name": "French",
-  "value": 2
+  "name": "Korean",
+  "value": 7
 }, {
   "name": "Mandarin",
-  "value": 18
-}, {
-  "name": "Cantonese",
-  "value": 2
-}, {
-  "name": "Hindi",
-  "value": 2
-}, {
-  "name": "Punjabi",
-  "value": 1
-}, {
-  "name": "Tamil",
-  "value": 2
-}, {
-  "name": "Tagalog",
-  "value": 1
-}, {
-  "name": "Persian",
-  "value": 1
-}, {
-  "name": "Telugu",
-  "value": 1
-}, {
-  "name": "Teochew",
   "value": 1
 }];
 
-let PROGRAMMING = [{
-  "name": "Yes",
-  "value": 68
-}, {
-  "name": "No",
-  "value": 4
-}];
 
 let FAMILY_INCOME = [{
   "name": "0-50k / year",
@@ -415,32 +260,22 @@ let CAT_OR_DOG = [{
 }];
 
 const SIBLINGS_PARENTS = [
-  {'group': '0', 'siblings-inc-zero': 1, 'siblings-inc-one': 8, 'siblings-inc-two': 4, 'siblings-inc-three': 4, 'siblings-inc-four': 1, 'siblings-inc-five': 0, 'siblings-inc-six': 2},
-  {'group': '1', 'siblings-inc-zero': 1, 'siblings-inc-one': 8, 'siblings-inc-two': 4, 'siblings-inc-three': 9, 'siblings-inc-four': 1, 'siblings-inc-five': 1, 'siblings-inc-six': 4},
-  {'group': '2+', 'siblings-inc-zero': 0, 'siblings-inc-one': 6, 'siblings-inc-two': 2, 'siblings-inc-three': 3, 'siblings-inc-four': 0, 'siblings-inc-five': 1, 'siblings-inc-six': 1},
+  {'group': '0', 'siblings-inc-zero': 0, 'siblings-inc-one': 2, 'siblings-inc-two': 1, 'siblings-inc-three': 0},
+  {'group': '1', 'siblings-inc-zero': 1, 'siblings-inc-one': 8, 'siblings-inc-two': 4, 'siblings-inc-three': 1},
+  {'group': '2+', 'siblings-inc-zero': 2, 'siblings-inc-one': 9, 'siblings-inc-two': 1, 'siblings-inc-three': 0},
 ]
 
-let ADMISSION_AVERAGE = [85,85,85,87,90,93,93,94,94,94,94.5,94.5,95,95,95,95,95,95,95,95,95.4,95.6,96,96,96,96,96,96,96,96,96,96,96,96.4,96.5,96.5,97,97,97,97,97,97,97.5,97.5,97.5,97.5,98,98,98,98,98,98,98,98,98,98,98,98,99,99,99.2,99.38]
 
 export {
-  INTERNATIONAL,
   PARENT_EDUCATION,
   ETHNICITY,
   GENDER,
   YEAR_OF_BIRTH,
   SEXUAL_ORIENTATION,
-  HOME_LOCATION,
   FAMILY_INCOME,
-  IMMIGRATED,
   SIBLINGS,
-  ENRICHED_PROGRAM,
-  CEGEP,
-  CEGEP_ATTENDED,
   MOTHER_TONGUE,
-  PROGRAMMING,
   CAT_OR_DOG,
-  ADMISSION_AVERAGE,
-  EMIGRATED_COUNTRY,
   NUM_LANGUAGE,
   LANGUAGE_KNOWN,
   SIBLINGS_PARENTS
