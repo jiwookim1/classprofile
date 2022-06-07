@@ -86,6 +86,7 @@ window.onload = () => {
     isMobile: util.isMobile()
   };
   renderLifestyle(options);
+  renderCoop(options);
   renderAcademics(options);
   renderBackground(options);
   renderHealth(options);
@@ -99,7 +100,7 @@ window.onload = () => {
   setMultiBarActive("enriched-overall", enriched_vs_grades);
   setMultiBarActive("admission-salary-overall", admission_salary);
   setMultiBarActive("entrance-overall", entrance_vs_grades);
-  // setMultiBarActive("work-location-0", work_location);
+  //setMultiBarActive("work-location-0", work_location);
   setupListeners();
 }
 
@@ -324,122 +325,94 @@ function drawWordCloud(elem, data, options, isFullWidth: boolean = false, height
 }
 
 function renderCoop(options) {
-  drawCoopWordCloud(d3.select('#coop-cloud'), options);
-  renderBoxPlot(d3.select('#salary'), SALARY, options.width, 350, {
-    xAxisTitle: 'Co-op term #',
-    yAxisTitle: 'Hourly compensation',
-    tickFormat: (d) => { return '$' + d; }
-  });
+  //drawCoopWordCloud(d3.select('#coop-cloud'), options);
+  //renderBoxPlot(d3.select('#salary'), SALARY, options.width, 350, {
+    //xAxisTitle: 'Co-op term #',
+   // yAxisTitle: 'Hourly compensation',
+   // tickFormat: (d) => { return '$' + d; }
+  //});
   renderLineChart(d3.select('#work-location'), WORK_LOCATION, options.fullWidth, 500, {
     toggle: 'work-location',
     lineLabels: [{
-      'x': '6th',
+      'x': 'E',
+      'value': 6,
+      'location': 'AL'
+    }, {
+      'x': 'E',
+      'value': 0,
+      'location': 'AS'
+    }, {
+      'x': 'E',
       'value': 3,
-      'location': 'California'
+      'location': 'IG2'
     }, {
-      'x': '6th',
-      'value': 11,
-      'location': 'East Coast US'
-    }, {
-      'x': '6th',
-      'value': 12.25,
-      'location': 'GTA / Toronto'
-    }, {
-      'x': '6th',
-      'value': 5,
-      'location': 'K / W'
-    }, {
-      'x': '6th',
-      'value': 2.25,
-      'location': 'MW US'
-    }, {
-      'x': '6th',
-      'value': 0.75,
-      'location': 'Ott. / MTL'
-    }, {
-      'x': '6th',
-      'value': 0.25,
-      'location': 'Other Ontario'
-    }, {
-      'x': '6th',
-      'value': 1.75,
-      'location': 'PNW US'
-    }, {
-      'x': '6th',
-      'value': 11.75,
-      'location': 'Remote'
-    }, {
-      'x': '6th',
-      'value': 1.25,
-      'location': 'West Coast Canada'
-    }, {
-      'x': '6th',
-      'value': -0.25,
-      'location': 'Outside NA'
+      'x': 'E',
+      'value': 4,
+      'location': 'IG1'
     }],
-    xAxisTitle: 'Co-op term number',
-    yAxisTitle: 'Proportion of students in the area',
+    xAxisTitle: 'Average grade',
+    yAxisTitle: 'Proportion of students with the grade',
     tickFormat: (d) => { return d + '%'; }
   });
-  renderHorizontalBarChat(d3.select('#favourite-location'), FAVOURITE_LOCATION, options.width, 240, true);
+  //renderHorizontalBarChat(d3.select('#favourite-location'), FAVOURITE_LOCATION, options.width, 240, true);
   // renderBoxPlot(d3.select('#age-salary'), AGE_SALARY, options.width, 280, {
   //   yAxisTitle: 'Average first 3 co-op hourly salary in CAD',
   //   xAxisTitle: 'Age started coding'
   // });
-  renderBoxPlot(d3.select('#hackathon-salary'), HACKATHON_SALARY, options.width, 400, {
-    xAxisTitle: 'Number of hackathons attended',
-    yAxisTitle: 'Average co-op hourly salary in CAD',
-  });
-  renderBoxPlot(d3.select('#side-salary'), SIDE_SALARY, options.width, 350, {
-    xAxisTitle: 'Commitment to side projects',
-    yAxisTitle: 'Average co-op hourly salary in CAD',
-  });
-  renderMultiSeriesBoxPlot(d3.select('#admission-salary'), ADMISSION_SALARY, options.width, 350, {
-    yAxisTitle: 'Average co-op hourly salary in CAD',
-    xAxisTitle: 'Admission average',
-  }, {"admission-salary-overall": 0, "admission-salary-first-year": 1});
-  renderDotPlot(d3.select('#grade-salary'), GRADE_SALARY, options.width, 400, {
-    yAxisTitle: 'Hourly compensation in CAD',
-    xAxisTitle: 'Cumulative average',
-    rawSize: true,
-    domain: [50, 100],
-    range: [0, 150],
-  });
-  renderLineChart(d3.select('#gender-salary'), GENDER_SALARY, options.width, 300, {
-    toggle: 'gender-salary',
-    lineLabels: [{
-      'x': '6th',
-      'value': 50,
-      'location': 'Women'
-    }, {
-      'x': '6th',
-      'value': 66,
-      'location': 'Men'
-    }],
-    yAxisTitle: 'Hourly salary in CAD',
-    xAxisTitle: 'Co-op term number',
-  });
-  renderPieChart(d3.select('#missed_interview'), MISSED_INTERVIEW, options.width * 0.75, options.width * 0.75);
-  renderPieChart(d3.select('#late_interview'), LATE_INTERVIEW, options.width * 0.75, options.width * 0.75);
+  //renderBoxPlot(d3.select('#hackathon-salary'), HACKATHON_SALARY, options.width, 400, {
+  //  xAxisTitle: 'Number of hackathons attended',
+  //  yAxisTitle: 'Average co-op hourly salary in CAD',
+  //});
+  //renderBoxPlot(d3.select('#side-salary'), SIDE_SALARY, options.width, 350, {
+  //  xAxisTitle: 'Commitment to side projects',
+  //  yAxisTitle: 'Average co-op hourly salary in CAD',
+  //});
+  // renderMultiSeriesBoxPlot(d3.select('#admission-salary'), ADMISSION_SALARY, options.width, 350, {
+  //   yAxisTitle: 'Average co-op hourly salary in CAD',
+  //   xAxisTitle: 'Admission average',
+  // }, {"admission-salary-overall": 0, "admission-salary-first-year": 1});
+  // renderDotPlot(d3.select('#grade-salary'), GRADE_SALARY, options.width, 400, {
+  //   yAxisTitle: 'Hourly compensation in CAD',
+  //   xAxisTitle: 'Cumulative average',
+  //   rawSize: true,
+  //   domain: [50, 100],
+  //   range: [0, 150],
+  // });
+  // renderLineChart(d3.select('#gender-salary'), GENDER_SALARY, options.width, 300, {
+  //   toggle: 'gender-salary',
+  //   lineLabels: [{
+  //     'x': '6th',
+  //     'value': 50,
+  //     'location': 'Women'
+  //   }, {
+  //     'x': '6th',
+  //     'value': 66,
+  //     'location': 'Men'
+  //   }],
+  //   yAxisTitle: 'Hourly salary in CAD',
+  //   xAxisTitle: 'Co-op term number',
+  // });
+  // renderPieChart(d3.select('#missed_interview'), MISSED_INTERVIEW, options.width * 0.75, options.width * 0.75);
+  // renderPieChart(d3.select('#late_interview'), LATE_INTERVIEW, options.width * 0.75, options.width * 0.75);
   
-  drawWordCloud(d3.select("#favourite-coop"), FAVOURITE_COOP, options)
-  renderHorizontalBarChat(d3.select("#favourite-coop-reasons"), FAVOURITE_COOP_REASON, options.width, 250, true)
-  renderGroupedBarChart(d3.select('#coop-ratings'), COOP_RATINGS, options.width, 250, coop_ratings,
-  {
-    yAxisTitle: 'Number of respondents',
-  });
-  renderGroupedBarChart(d3.select('#coop-types'), COOP_TYPES, options.width, 250, coop_types,
-  {
-    yAxisTitle: 'Number of respondents',
-  });
-  renderGroupedBarChart(d3.select('#coop-breakdown'), COOP_BREAKDOWN, options.width, 250, coop_breakdown_legend,
-  {
-    yAxisTitle: 'Average count',
-  });
-  renderGroupedBarChart(d3.select('#coop-jobs'), COOP_JOBS, options.width, 250, coop_jobs,
-  {
-    yAxisTitle: 'Percentage of respondents',
-  });
+  // drawWordCloud(d3.select("#favourite-coop"), FAVOURITE_COOP, options)
+  // renderHorizontalBarChat(d3.select("#favourite-coop-reasons"), FAVOURITE_COOP_REASON, options.width, 250, true)
+  // renderGroupedBarChart(d3.select('#coop-ratings'), COOP_RATINGS, options.width, 250, coop_ratings,
+  // {
+  //   yAxisTitle: 'Number of respondents',
+  // });
+  // renderGroupedBarChart(d3.select('#coop-types'), COOP_TYPES, options.width, 250, coop_types,
+  // {
+  //   yAxisTitle: 'Number of respondents',
+  // });
+  // renderGroupedBarChart(d3.select('#coop-breakdown'), COOP_BREAKDOWN, options.width, 250, coop_breakdown_legend,
+  // {
+  //   yAxisTitle: 'Average count',
+  // });
+  // renderGroupedBarChart(d3.select('#coop-jobs'), COOP_JOBS, options.width, 250, coop_jobs,
+  // {
+  //   yAxisTitle: 'Percentage of respondents',
+  // });
 }
 
 function renderLifestyle(options) {
@@ -475,8 +448,8 @@ function renderAcademics(options) {
   renderHorizontalBarChat(d3.select('#largest-workload'), LARGEST_WORKLOAD, options.width, 200, false);
 
   renderBoxPlot(d3.select('#grades'), GRADES, options.width, 300, {
-    yAxisTitle: 'Term average',
-    xAxisTitle: 'Study term number',
+    yAxisTitle: 'Year average',
+    xAxisTitle: 'Study year',
   });
   renderHorizontalBarChat(d3.select('#favourite-mandatory'), FAVOURITE_MANDATORY, options.width, 390, false);
   renderHorizontalBarChat(d3.select('#disliked-mandatory'), DISLIKED_MANDATORY, options.width, 420, false);
