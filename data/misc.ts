@@ -1,3 +1,5 @@
+const SOCIAL_MEDIA = [1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,7,7,8,9,10,10]
+ 
 let BURNOUT = [{
   "name": "0",
   "value": 8
@@ -28,8 +30,14 @@ let BURNOUT = [{
 }];
 
 let FIGHTS = [{
-  "name": "Never involved",
-  "value": 48
+  "name": "Yes",
+  "value": 12
+},{
+  "name": "No",
+  "value": 23
+},{
+  "name": "With thuy an phan",
+  "value":1
 }]
 
 let REDDIT_USAGE = [{
@@ -100,5 +108,6 @@ export {
   CRYING,
   TRANSFER_THOUGHTS,
   DROPOUT_THOUGHTS,
-  SE21_GRAD
+  SE21_GRAD,
+  SOCIAL_MEDIA
 }

@@ -18,9 +18,9 @@ import { FAVOURITE_MANDATORY, FAVOURITE_ELECTIVE, DISLIKED_MANDATORY, ATTENDANCE
 import { PARENT_EDUCATION, ETHNICITY, GENDER, YEAR_OF_BIRTH, SEXUAL_ORIENTATION, FAMILY_INCOME, SIBLINGS, MOTHER_TONGUE,  CAT_OR_DOG, NUM_LANGUAGE, LANGUAGE_KNOWN, SIBLINGS_PARENTS } from './data/background';
 import { ORIGINAL, CHOOSE_PROGRAM, GENDER_RATING } from './data/outcome';
 import { SALARY, WORK_LOCATION, FAVOURITE_LOCATION, HACKATHON_SALARY, SIDE_SALARY, ADMISSION_SALARY, COMPANY_WORK_COUNT, FAVOURITE_COMPANIES, GRADE_SALARY, GENDER_SALARY,LATE_INTERVIEWER, LATE_INTERVIEW, MISSED_INTERVIEW, FAVOURITE_COOP, FAVOURITE_COOP_REASON, COOP_RATINGS, COOP_TYPES, COOP_BREAKDOWN, COOP_JOBS } from './data/coop';
-import { BURNOUT, FIGHTS, REDDIT_USAGE, CRYING, TRANSFER_THOUGHTS, DROPOUT_THOUGHTS, SE21_GRAD } from './data/misc';
+import { BURNOUT, FIGHTS, REDDIT_USAGE, CRYING, TRANSFER_THOUGHTS, DROPOUT_THOUGHTS, SE21_GRAD, SOCIAL_MEDIA } from './data/misc';
 import { POST_GRAD, POST_LOCATION, MOTIVATIONS, FULL_TIME_COMPENSATION, POST_RETURN_HOME, POST_CONTENTNESS, COOP_CONVERSION, FULL_TIME_COMPANY, CONT_FYDP, PENG } from './data/future';
-import { FAMILY, FRIENDSHIPS, ROMANCE } from './data/relationships';
+import { CLOSE_FRIENDS, FAMILY, FRIENDSHIPS, ROMANCE, SEPARATE } from './data/relationships';
 import { BUDGET, INVEST, RESP, SCHOOL_EXPENSES, NEW_DEBT, LOANS } from './data/finances';
 import {SICK, OHIP, MENTAL_HEALTH, MENTAL_HEALTH_ISSUES, EXERCISE_FREQ, INTRAMURALS, EXERCISE_TYPE, EXERCISE_WORDS, WEIGHT, RECREATIONAL_SUBSTANCES, IMPOSTER_SYNDROME, IMPOSTER_SYNDROME_NOW} from './data/health';
 import { EXCHANGE, EXCHANGE_GEO_DATA } from './data/exchange';
@@ -550,6 +550,16 @@ function renderHealth(options) {
 }
 
 function renderMisc(options) {
+  renderBinnedDotLine(d3.select('#social-media'),
+    SOCIAL_MEDIA,
+    options.fullWidth,
+    400,
+    {
+      domain: [0, 10], // ignoring the last few values that skew the graph
+      binCount: 100,
+      fillColour: '#18bbc9',
+    }
+  );
   renderHorizontalBarChat(d3.select('#burnout'), BURNOUT, options.width, 250, false);
   renderPieChart(d3.select('#fights'), FIGHTS, options.width * 0.75, options.width * 0.75);
   renderHorizontalBarChat(d3.select('#reddit'), REDDIT_USAGE, options.width, 150, false);
@@ -686,6 +696,9 @@ function renderRelationships(options) {
     xAxisTitle: 'Sexual activity',
   });
   
+  renderPieChart(d3.select('#fam-separate'), SEPARATE, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#close-friends'), CLOSE_FRIENDS, options.width, 250, false);
+
   renderPieChart(d3.select('#romance-cheating'), ROMANCE.CHEATING, options.width * 0.75, options.width * 0.75);
   renderHorizontalBarChat(d3.select('#romance-cheating-reasons'),
     ROMANCE.CHEATING_REASONS,

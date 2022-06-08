@@ -172,7 +172,7 @@ function renderBinnedDotLine(elem, data, width, height, options) {
       if (options.rawSize) {
         return d.length * 1.5;
       }
-      return 3 * Math.pow(d.length, 0.5);
+      return 3 * Math.pow(d.length, 1.15);
     })
     .style("fill", fillColourFunction)
     .style('stroke', 'rgba(0,0,0,0.2)')

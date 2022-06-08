@@ -119,10 +119,10 @@ let ETHNICITY = [{
 }]
 
 let GENDER = [{
-  "name": "Men",
+  "name": "Male",
   "value": 20
 }, {
-  "name": "Women",
+  "name": "Female",
   "value": 15
 }, {
   "name": "Cookie Monster",
@@ -250,13 +250,10 @@ let FAMILY_INCOME = [{
 
 let CAT_OR_DOG = [{
   "name": "Cat",
-  "value": 15
+  "value": 11
 }, {
   "name": "Dog",
-  "value": 35
-}, {
-  "name": "Both",
-  "value": 18
+  "value": 25
 }];
 
 const SIBLINGS_PARENTS = [
