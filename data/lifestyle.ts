@@ -1,18 +1,18 @@
 let EXTRACURRICULARS = [{
   "name": "Never",
-  "value": 29,
+  "value": 5,
   }, {
-  "name": "For 1+ Term",
-  "value": 17,
+  "name": "1 Year",
+  "value": 6,
   }, {
-  "name": "For 4+ Terms",
-  "value": 4,
+  "name": "2 Years",
+  "value": 9,
   }, {
-  "name": "For 6+ terms",
-  "value": 2,
+  "name": "3 Years",
+  "value": 5,
   }, {
-  "name": "Every term",
-  "value": 2,
+  "name": "4 years",
+  "value": 11,
 }];
 
 let GROCERY_STORES = [{
@@ -88,51 +88,45 @@ let RESTAURANTS = {
 
 let SLEEP_TIME = [{
   "name": "10 PM",
-  "value": 2,
+  "value": 3,
   }, {
   "name": "11 PM",
-  "value": 6,
+  "value": 3,
   }, {
   "name": "12 AM",
-  "value": 11,
+  "value": 12,
   }, {
   "name": "1 AM",
-  "value": 13,
+  "value": 9,
   }, {
   "name": "2 AM",
-  "value": 14,
+  "value": 6,
   }, {
   "name": "3 AM",
   "value": 3,
-  }, {
-  "name": "4 AM",
-  "value": 0,
-  }, {
-  "name": "5 AM",
-  "value": 2,
-  }, {
-  "name": "6 AM",
-  "value": 1,
-  }, {
-  "name": "After 6 AM",
-  "value": 3,
-}];
+  }];
 
 let SLEEP_DURATION = [{
-  "name": "5 hours",
+  "name": "3 hours",
   "value": 1,
+  },{
+  "name": "4 hours",
+  "value": 2,
+  }, {
+  "name": "5 hours",
+  "value": 5,
   }, {
   "name": "6 hours",
-  "value": 11,
+  "value": 8,
   }, {
   "name": "7 hours",
-  "value": 18,
+  "value": 12,
   }, {
   "name": "8 hours",
-  "value": 13,
-  }, {
-  "name": "> 8 hours",
-  "value": 10,
+  "value": 6,
+}, {
+  "name": "10 hours",
+  "value": 1,
 }];
 
 let COOKING_FREQUENCY = [{

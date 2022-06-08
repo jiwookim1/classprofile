@@ -19,36 +19,20 @@ let GRADES = [
 
 let GRADES_OFFICIAL = [
   {
-    "x": "1A",
-    "value": [86.4]	
+    "x": "IG1",
+    "value": [78.4]	
   },
   {
-    "x": "1B",
-    "value": [81.3]	
+    "x": "IG2",
+    "value": [81.5]	
   },
   {
-    "x": "2A",
-    "value": [84.8]
+    "x": "AS",
+    "value": [77.5]
   },
   {
-    "x": "2B",
-    "value": [82.2]
-  },
-  {
-    "x": "3A",
-    "value": [87.8]
-  },
-  {
-    "x": "3B",
-    "value": [83.1]
-  },
-  {
-    "x": "4A",
-    "value": [89.6]
-  },
-  {
-    "x": "4B",
-    "value": [90.6]
+    "x": "AL",
+    "value": [83.2]
   }
 ];
 
@@ -102,44 +86,41 @@ let LARGEST_WORKLOAD = [{
 ];
 
 let FAVOURITE_MANDATORY = [{
-  "name": "CS 138",
-  "value": 1
+  "name": "Business",
+  "value": 6
   }, {
-  "name": "CS 240",
-  "value": 2
+  "name": "Computer Science",
+  "value": 4
   }, {
-  "name": "CS 341",
+  "name": "Chemistry",
   "value": 3
   }, {
-  "name": "CS 343",
-  "value": 5
+  "name": "PE",
+  "value": 3
   }, {
-  "name": "CS 349",
+  "name": "Business Studies",
+  "value": 3
+  }, {
+  "name": "Math",
   "value": 2
   }, {
-  "name": "CS 444",
-  "value": 1
-  }, {
-  "name": "CS 468",
-  "value": 1
-  }, {
-  "name": "ECE 124",
+  "name": "Sociology",
   "value": 2
   }, {
-  "name": "ECE 140",
+  "name": "Psychology",
+  "value": 3
+  }, {
+  "name": "Physics",
   "value": 1
   }, {
-  "name": "ECE 222",
+  "name": "Economics",
   "value": 1
   }, {
-  "name": "MATH 239",
-  "value": 5
+  "name": "Art/Design",
+  "value": 2
   }, {
-  "name": "SE 350",
-  "value": 7
-  }, {
-    "name": "None",
-    "value": 1
+  "name": "History",
+  "value": 1
   }
 ]
 
@@ -673,11 +654,11 @@ let CAMPUS_LOCATION_POST = [
 
 let FAILING = [
   {
-    "name": "Failed a midterm",
-    "value": 19
+    "name": "Failed a subject",
+    "value": 11
   }, {
-    "name": "Failed a class",
-    "value": 8
+    "name": "Prefer not to disclose",
+    "value": 3,
   }
 ]
 
@@ -740,24 +721,24 @@ let OPTIONS = [
 ]
 
 let FAVOURITE_PROF_COUNT = {
-  "Ali Abedi": 1,
-  "Alice Gao": 5,
-  "Andrew Kennings": 5,
-  "Christopher Nielsen": 1,
-  "Edward Lank": 1,
-  "George Labahn": 1,
-  "Igor Ivkovic": 1,
-  "Mansour": 1,
-  "Martin Pei": 11,
-  "Nancy Day": 1,
-  "Ondrej Lhotak": 2,
-  "Patrick Lam": 5,
-  "Peter Buhr": 5,
-  "Scott Campbell": 1,
-  "Seyed Majid Zahedi": 3,
-  "Simon Wood": 2,
-  "Stephen Mann ": 1,
-  "Surya Banerjee": 3
+  "Lorraine Els": 1,
+  "Michael Ogden": 1,
+  "Nils Harteveld": 3,
+  "Claudine Van Rensburg": 1,
+  "Brett Grant": 1,
+  "Westley Venter": 1,
+  "Donald Reedy": 4,
+  "Neil Shaw": 1,
+  "Tamir Ratzon": 6,
+  "Ng Eng Seng Berry": 4,
+  "Barry Devine": 1,
+  "Sean Stokes" : 1,
+  "Pakrick Flynn" : 3,
+  "Christine Nyenes" : 2,
+  "Matthew Phillips" : 3,
+  "Bruno Giegerich" : 1,
+  "Alex Ong" : 1,
+  "Hein Labuschagne" : 2  
 };
 
 export {

@@ -416,12 +416,12 @@ function renderCoop(options) {
 }
 
 function renderLifestyle(options) {
-  renderHorizontalBarChat(d3.select('#programming-language'), PROGRAMMING_LANGUAGE, options.width, 400, true);
-  renderHorizontalBarChat(d3.select('#editor'), EDITOR, options.width, 250, true);
-  renderPieChart(d3.select('#mobile-os'), MOBILE_OS, options.width * 0.80, options.width * 0.80);
+  //renderHorizontalBarChat(d3.select('#programming-language'), PROGRAMMING_LANGUAGE, options.width, 400, true);
+  //renderHorizontalBarChat(d3.select('#editor'), EDITOR, options.width, 250, true);
+  //renderPieChart(d3.select('#mobile-os'), MOBILE_OS, options.width * 0.80, options.width * 0.80);
 
-  renderPieChart(d3.select('#grocery-stores'), GROCERY_STORES, options.width * 0.80, options.width * 0.80);
-  renderPieChart(d3.select('#fav-exercise'), FAVOURITE_EXERCISE, options.width * 0.80, options.width * 0.80);
+  //renderPieChart(d3.select('#grocery-stores'), GROCERY_STORES, options.width * 0.80, options.width * 0.80);
+  //renderPieChart(d3.select('#fav-exercise'), FAVOURITE_EXERCISE, options.width * 0.80, options.width * 0.80);
 
   drawWordCloud(d3.select('#travel-locations'), TRAVEL_LOCATIONS, options);
   drawWordCloud(d3.select('#restaurants'), RESTAURANTS, options);
@@ -495,7 +495,7 @@ function renderAcademics(options) {
   });
   renderLineChart(d3.select('#grades-official'), GRADES_OFFICIAL, options.width, 300, {
     yAxisTitle: 'Grade (%)',
-    xAxisTitle: 'Academic term',
+    xAxisTitle: 'Academic Year',
     range: [50, 100]
   });
 }
@@ -544,7 +544,7 @@ function renderHealth(options) {
   drawWordCloud(d3.select('#exercise-type'), EXERCISE_WORDS, options);
   renderHorizontalBarChat(d3.select('#intramurals'), INTRAMURALS, options.width, 250, false);
   renderHorizontalBarChat(d3.select('#weight'), WEIGHT, options.width, 250, false);
-  drawWordCloud(d3.select('#controlled-substances'), RECREATIONAL_SUBSTANCES, options);
+  renderHorizontalBarChat(d3.select('#controlled-substances'), RECREATIONAL_SUBSTANCES, options.width, 250, false);
   renderPieChart(d3.select('#imposter-syndrome'), IMPOSTER_SYNDROME, options.width * 0.60, options.width * 0.60);
   renderPieChart(d3.select('#imposter-syndrome-now'), IMPOSTER_SYNDROME_NOW, options.width * 0.60, options.width * 0.60);
 }

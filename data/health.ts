@@ -13,52 +13,37 @@ let SICK = [{
   }];
 
 let OHIP = [{
-    "name": "All of it",
-    "value": 12
-    }, {
-    "name": "Most of it",
-    "value": 18
-    }, {
-    "name": "N/A",
-    "value": 20
-    }, {
-    "name": "Nothing",
-    "value": 4
-  }]
-
-let MENTAL_HEALTH = [{
-    "name": "Yes - before university",
-    "value": 8
-    }, {
-    "name": "Yes - during university",
-    "value": 10
+    "name": "Yes",
+    "value": 27
     }, {
     "name": "No",
-    "value": 18
+    "value": 9
+    }]
+
+let MENTAL_HEALTH = [{
+    "name": "Yes",
+    "value": 14
+    }, {
+    "name": "No",
+    "value": 15
+    }, {
+    "name": "Prefer not to disclose",
+    "value": 7
 }]
 
 let MENTAL_HEALTH_ISSUES = [{
     "name": "Anxiety",
-    "value": 22
+    "value": 3
     }, {
-    "name": "Low Self-Esteem",
-    "value": 18
-    }, {
-    "name": "Depression",
-    "value": 15
-    }, {
-    "name": "Post-Traumatic Stress",
+    "name": "Stress",
     "value": 2
     }, {
-    "name": "Bullying",
-    "value": 1
+    "name": "Depression",
+    "value": 3
     }, {
-    "name": "Imposter Syndrome",
+    "name": "Exhaustion/Tiredness",
     "value": 1
-    }, {
-    "name": "Perfectionism",
-    "value": 1
-}]
+    }]
 
 let WEIGHT = [{
     "name": "< -20",
@@ -84,65 +69,77 @@ let WEIGHT = [{
 }]
 
 let EXERCISE_FREQ = [{
-    "name": "Every Day",
-    "value": 4
-    }, {
-    "name": "Few times a week",
-    "value": 17
-    }, {
-    "name": "Few times a month",
-    "value": 14
-    }, {
-    "name": "Few times a term",
-    "value": 16
-    }, {
-    "name": "Never",
-    "value": 3
-}]
-
-let EXERCISE_TYPE = [{
-    "name": "Strength",
-    "value": 36
-    }, {
-    "name": "Aerobic",
-    "value": 31
-    }, {
-    "name": "Flexibility",
-    "value": 5
-    }, {
-    "name": "Balancing",
+    "name": "1 time",
     "value": 2
     }, {
-    "name": "Biking",
+    "name": "2 times",
     "value": 1
     }, {
-    "name": "Muay Thai",
+    "name": "3 times",
+    "value": 9
+    }, {
+    "name": "4 times",
+    "value": 5
+    }, {
+    "name": "5 times",
+    "value": 7
+    }, {    
+    "name": "6 times",
+    "value": 7
+    }, {
+    "name": "7 times",
+    "value" : 7
+    }, {
+    "name": ">7 times",
+    "value": 2
+    }
+    ]
+
+let EXERCISE_TYPE = [{
+    "name": "",
+    "value": 7
+    }, {
+    "name": "",
     "value": 1
     }, {
-    "name": "Soccer",
+    "name": "",
+    "value": 2
+    }, {
+    "name": "",
     "value": 1
     }, {
-    "name": "Sports",
+    "name": "",
+    "value": 1
+    }, {
+    "name": "",
+    "value": 4
+    }, {
+    "name": "",
+    "value": 1
+    }, {
+    "name": "",
     "value": 1  
     }, {
-    "name": "Swimming",
-    "value": 1
+    "name": "Cycling",
+    "value": 3
     }, {
-    "name": "Yoga",
-    "value": 1
+    "name": "Calisthenics",
+    "value": 4
 }]
 
 let EXERCISE_WORDS = {
-    "Strength":36,
-    "Aerobic":31,
-    "Flexibility":5,
-    "Balancing":2,
-    "Biking":1,
-    "Muay Thai":1,
-    "Soccer":1,
-    "Sports":1,
-    "Swimming":1,
+    "Resistance/Weight":7,
     "Yoga":1,
+    "Basketball":2,
+    "Balancing":2,
+    "Swimming":1,
+    "Karate":1,
+    "Soccer":1,
+    "Running":4,
+    "Bed":1,
+    "Sports":1,
+    "Cycling":3,
+    "Calisthenics":4
 }
 
 let INTRAMURALS = [{
@@ -159,18 +156,21 @@ let INTRAMURALS = [{
     "value": 28
 }]
 
-let RECREATIONAL_SUBSTANCES = {
-    "Alcohol":37,
-    "Marijuana":27,
-    "Hallucinogens":8,
-    "Tobacco":6,
-    "MDMA / Ecstasy / Molly":4,
-    "Adderall":3,
-    "LSD":3,
-    "Cocaine":1,
-    "Ketamine":1,
-    "Modafinil":1,
-}
+let RECREATIONAL_SUBSTANCES = [
+    {
+        "name": "Alcohol",
+        "value": 11
+    },{
+        "name": "Weed",
+        "value": 3
+    },{
+        "name": "Dirty Sprite",
+        "value": 1
+    },{
+        "name": "Coke",
+        "value": 1
+    }
+]
 
 let IMPOSTER_SYNDROME = [
     {"name": "Yes",
