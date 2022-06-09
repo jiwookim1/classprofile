@@ -87,7 +87,7 @@ let LARGEST_WORKLOAD = [{
 
 let FAVOURITE_MANDATORY = [{
   "name": "Business",
-  "value": 6
+  "value": 9
   }, {
   "name": "Computer Science",
   "value": 4
@@ -96,9 +96,6 @@ let FAVOURITE_MANDATORY = [{
   "value": 3
   }, {
   "name": "PE",
-  "value": 3
-  }, {
-  "name": "Business Studies",
   "value": 3
   }, {
   "name": "Math",

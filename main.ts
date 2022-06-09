@@ -451,9 +451,9 @@ function renderAcademics(options) {
     yAxisTitle: 'Year average',
     xAxisTitle: 'Study year',
   });
-  renderHorizontalBarChat(d3.select('#favourite-mandatory'), FAVOURITE_MANDATORY, options.width, 390, false);
-  renderHorizontalBarChat(d3.select('#disliked-mandatory'), DISLIKED_MANDATORY, options.width, 420, false);
-  renderHorizontalBarChat(d3.select('#favourite-elective'), FAVOURITE_ELECTIVE, options.width, 390, false);
+  renderHorizontalBarChat(d3.select('#favourite-mandatory'), FAVOURITE_MANDATORY, options.width, 390, true);
+  renderHorizontalBarChat(d3.select('#disliked-mandatory'), DISLIKED_MANDATORY, options.width, 420, true);
+  renderHorizontalBarChat(d3.select('#favourite-elective'), FAVOURITE_ELECTIVE, options.width, 390, true);
   renderHorizontalBarChat(d3.select('#transfer-from'), TRANSFER_FROM, options.width, 100, false);
   renderLineChart(d3.select('#attendance'), ATTENDANCE, options.width, 300, {
     toggle: 'attendance',
