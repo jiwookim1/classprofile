@@ -32,6 +32,20 @@ let GROCERY_STORES = [{
   "value": 10,
 }];
 
+
+let LEADERSHIP_POSITION=[
+  {
+    "name":"Yes",
+    "value":14
+  },{
+    "name":"No",
+    "value":19
+  },{
+    "name":"Prefer not to disclose",
+    "value":3
+  }
+]
+
 let TRAVEL_LOCATIONS = {
   "Turkey": 2,
   "San Francisco": 3,
@@ -213,23 +227,22 @@ let PARTIES = [{
 
 const HAPPY_THINGS = {
   COUNTS: {
-    'Animals': 3,
-    'Friends': 12,
+    'Sleep': 2,
+    'Friends': 15,
     'Family': 4,
-    'Traveling': 2,
+    'Long Walks': 1,
     'Nature': 3,
-    'Food': 7,
-    'Shopping': 2,
-    'Math': 1,
-    'Sleep': 1,
-    'Fun': 2,
-    'Coding': 2,
+    'Food': 2,
+    'Chemistry': 1,
+    'Novels': 1,
     'Money': 2,
     'Gaming': 2,
-    'Exercise': 2,
-    'Graduating': 2,
-    'Music': 1,
-    'Expressing creativity': 1,
+    'BF/GF': 2,
+    'Traveling': 2,
+    'Music': 7,
+    'Cars': 1,
+    'Baking':1,
+    'Movies':1
   },
   ADDITIONAL_INFO: {
     'Friends': [
@@ -408,5 +421,6 @@ export {
   NEW_HOBBIES,
   PROGRAMMING_LANGUAGE,
   EDITOR,
-  MOBILE_OS
+  MOBILE_OS,
+  LEADERSHIP_POSITION
 }

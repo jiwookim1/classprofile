@@ -81,7 +81,7 @@ const ROMANCE = {
     {'name': 'Before university', 'value': [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,3,4] },
     {'name': 'During university', 'value': [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,5,7,9] },
   ],
-  SECEST: [{'name':'No','value':50},{'name':'Yes (SE 2021)','value':3},{'name':'Yes (not SE 2021)','value':2},{'name':'Yes (both)','value':2}],
+  SECEST: [{'name':'Yes ','value':23},{'name':'No','value':13}],
   CHEATING: [{'name':'No','value':47},{'name':'Yes','value':8}],
   CHEATING_REASONS: [{'name':'Have been cheated on','value':6},{'name':'Helped someone cheat','value':2},{'name':'Cheated on someone','value':2}],
 };

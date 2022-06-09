@@ -1,3 +1,36 @@
+let HS_EXPERIENCE =[{
+  "name":"1",
+  "value":1
+},{
+  "name":"2",
+  "value":1
+},{
+  "name":"3",
+  "value":0
+},{
+  "name":"4",
+  "value":1
+},{
+  "name":"5",
+  "value":2
+},{
+  "name":"6",
+  "value":5
+},{
+  "name":"7",
+  "value":7
+},{
+  "name":"8",
+  "value":13
+},{
+  "name":"9",
+  "value":2
+},{
+  "name":"10",
+  "value":4
+}]
+
+
 let POST_GRAD = [{
   "name": "Entrepreneurship",
   "value": 2
@@ -14,6 +47,7 @@ let POST_GRAD = [{
   "name": "Industry - Accepted",
   "value": 49
 }];
+
 
 
 let POST_LOCATION = [{
@@ -66,28 +100,51 @@ const FULL_TIME_COMPENSATION = {
 
 let COOP_CONVERSION = [{
   "name": "Yes",
-  "value": 45
+  "value": 20
   }, {
   "name": "No",
-  "value": 5
+  "value": 7
+},{
+  "name": "Maybe",
+  "value": 9
 }]
 
+
+let VIETNAM_FUTURE = [
+  {
+    "name":"Yes",
+    "value":12
+  },{
+    "name":"No",
+    "value":6
+  },{
+    "name":"Maybe",
+    "value":18
+  }
+]
+
 let POST_CONTENTNESS = [{
-  "name": "5",
-  "value": 28
+  "name": "Vietnam",
+  "value": 9
   }, {
-  "name": "4",
-  "value": 21
+  "name": "Australia",
+  "value": 4
   }, {
-  "name": "3",
-  "value": 3
+  "name": "Canada",
+  "value": 5
   }, {
-  "name": "2",
+  "name": "USA",
+  "value": 2
+  }, {
+  "name": "England",
   "value": 1
   }, {
-  "name": "1",
-  "value": 1
-}]
+    "name": "Netherlands",
+    "value": 1
+  }, {
+    "name": "Korea",
+    "value": 6
+  }]
 
 let FULL_TIME_COMPANY = {
   "Jane Street": 2,
@@ -124,15 +181,12 @@ let POST_RETURN_HOME = [{
 }]
 
 let CONT_FYDP = [{
-  "name": "Yes",
-  "value": 8
+  "name": "University/Further Education",
+  "value": 34
   }, {
-  "name": "Maybe",
-  "value": 14
-  }, {
-  "name": "No",
-  "value": 15
-}]
+  "name": "Others",
+  "value": 2
+  }]
 
 let PENG = [{
   "name": "Yes",
@@ -146,8 +200,6 @@ let PENG = [{
 }]
 
 export {
-  POST_GRAD,
-  POST_LOCATION,
   MOTIVATIONS,
   FULL_TIME_COMPENSATION,
   COOP_CONVERSION,
@@ -155,5 +207,7 @@ export {
   FULL_TIME_COMPANY,
   CONT_FYDP,
   PENG,
-  POST_RETURN_HOME
+  POST_RETURN_HOME,
+  HS_EXPERIENCE,
+  VIETNAM_FUTURE
 }

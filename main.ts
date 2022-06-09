@@ -13,13 +13,13 @@ import { renderHistogram } from './shared/histogram.js';
 import { renderGeographicMap } from './shared/geographicmap.js';
 
 import { TRANSFERRED,TERM_TRANSFERRED,REASONS_TRANSFERRED, DISLIKED_COURSES_TRANSFERRED,REGRET_TRANSFFERED } from './data/transfers'
-import { EXTRACURRICULARS, GROCERY_STORES, TRAVEL_LOCATIONS, RESTAURANTS, SLEEP_TIME, SLEEP_DURATION, COOKING_FREQUENCY, EATING_OUT_FREQUENCY, FAVOURITE_EXERCISE, DESIGN_TEAM, PARTIES, HAPPY_THINGS, NEW_HOBBIES, PROGRAMMING_LANGUAGE, EDITOR, MOBILE_OS } from './data/lifestyle';
+import { EXTRACURRICULARS, GROCERY_STORES, TRAVEL_LOCATIONS, RESTAURANTS, SLEEP_TIME, SLEEP_DURATION, COOKING_FREQUENCY, EATING_OUT_FREQUENCY, FAVOURITE_EXERCISE, DESIGN_TEAM, PARTIES, HAPPY_THINGS, NEW_HOBBIES, PROGRAMMING_LANGUAGE, EDITOR, MOBILE_OS,LEADERSHIP_POSITION } from './data/lifestyle';
 import { FAVOURITE_MANDATORY, FAVOURITE_ELECTIVE, DISLIKED_MANDATORY, ATTENDANCE, GRADES, PARENT_GRADES, ATTENDANCE_GRADE, CAMPUS_LOCATION_PRE, CAMPUS_LOCATION_POST, FAVOURITE_PROF_COUNT, FAILING, OPTIONS, OVERLOADING, OVERLOADING_REASONS, LARGEST_WORKLOAD, TRANSFER_FROM, ENRICHED_VS_GRADES, SLEEP_VS_GRADES, ENTRANCE_VS_GRADES, GRADES_OFFICIAL } from './data/academics';
 import { PARENT_EDUCATION, ETHNICITY, GENDER, YEAR_OF_BIRTH, SEXUAL_ORIENTATION, FAMILY_INCOME, SIBLINGS, MOTHER_TONGUE,  CAT_OR_DOG, NUM_LANGUAGE, LANGUAGE_KNOWN, SIBLINGS_PARENTS } from './data/background';
 import { ORIGINAL, CHOOSE_PROGRAM, GENDER_RATING } from './data/outcome';
 import { SALARY, WORK_LOCATION, FAVOURITE_LOCATION, HACKATHON_SALARY, SIDE_SALARY, ADMISSION_SALARY, COMPANY_WORK_COUNT, FAVOURITE_COMPANIES, GRADE_SALARY, GENDER_SALARY,LATE_INTERVIEWER, LATE_INTERVIEW, MISSED_INTERVIEW, FAVOURITE_COOP, FAVOURITE_COOP_REASON, COOP_RATINGS, COOP_TYPES, COOP_BREAKDOWN, COOP_JOBS } from './data/coop';
-import { BURNOUT, FIGHTS, REDDIT_USAGE, CRYING, TRANSFER_THOUGHTS, DROPOUT_THOUGHTS, SE21_GRAD, SOCIAL_MEDIA } from './data/misc';
-import { POST_GRAD, POST_LOCATION, MOTIVATIONS, FULL_TIME_COMPENSATION, POST_RETURN_HOME, POST_CONTENTNESS, COOP_CONVERSION, FULL_TIME_COMPANY, CONT_FYDP, PENG } from './data/future';
+import { BURNOUT, FIGHTS, REDDIT_USAGE, CRYING, SOCIAL_MEDIA,COUNTRIES_VISITED } from './data/misc';
+import { MOTIVATIONS, FULL_TIME_COMPENSATION, POST_RETURN_HOME, POST_CONTENTNESS, COOP_CONVERSION, FULL_TIME_COMPANY, CONT_FYDP, PENG, HS_EXPERIENCE,VIETNAM_FUTURE } from './data/future';
 import { CLOSE_FRIENDS, FAMILY, FRIENDSHIPS, ROMANCE, SEPARATE } from './data/relationships';
 import { BUDGET, INVEST, RESP, SCHOOL_EXPENSES, NEW_DEBT, LOANS } from './data/finances';
 import {SICK, OHIP, MENTAL_HEALTH, MENTAL_HEALTH_ISSUES, EXERCISE_FREQ, INTRAMURALS, EXERCISE_TYPE, EXERCISE_WORDS, WEIGHT, RECREATIONAL_SUBSTANCES, IMPOSTER_SYNDROME, IMPOSTER_SYNDROME_NOW} from './data/health';
@@ -435,6 +435,8 @@ function renderLifestyle(options) {
   renderHorizontalBarChat(d3.select('#extracurriculars'), EXTRACURRICULARS, options.width, 250, false);
   renderHorizontalBarChat(d3.select('#design-team'), DESIGN_TEAM, options.width, 250, false);
   renderHorizontalBarChat(d3.select('#parties'), PARTIES, options.width, 250, false);
+  renderPieChart(d3.select('#leadership-position'), LEADERSHIP_POSITION, options.width * 0.75, options.width * 0.75);
+
 }
 
 function renderAcademics(options) {
@@ -545,8 +547,8 @@ function renderHealth(options) {
   renderHorizontalBarChat(d3.select('#intramurals'), INTRAMURALS, options.width, 250, false);
   renderHorizontalBarChat(d3.select('#weight'), WEIGHT, options.width, 250, false);
   renderHorizontalBarChat(d3.select('#controlled-substances'), RECREATIONAL_SUBSTANCES, options.width, 250, false);
-  renderPieChart(d3.select('#imposter-syndrome'), IMPOSTER_SYNDROME, options.width * 0.60, options.width * 0.60);
-  renderPieChart(d3.select('#imposter-syndrome-now'), IMPOSTER_SYNDROME_NOW, options.width * 0.60, options.width * 0.60);
+  //renderPieChart(d3.select('#imposter-syndrome'), IMPOSTER_SYNDROME, options.width * 0.60, options.width * 0.60);
+  //renderPieChart(d3.select('#imposter-syndrome-now'), IMPOSTER_SYNDROME_NOW, options.width * 0.60, options.width * 0.60);
 }
 
 function renderMisc(options) {
@@ -565,64 +567,65 @@ function renderMisc(options) {
   renderHorizontalBarChat(d3.select('#reddit'), REDDIT_USAGE, options.width, 150, false);
   renderPieChart(d3.select('#cat-or-dog'), CAT_OR_DOG, options.width * 0.75, options.width * 0.75);
   renderHorizontalBarChat(d3.select('#crying'), CRYING, options.width, 250, false);
-  renderPieChart(d3.select('#transfer-thoughts'), TRANSFER_THOUGHTS, options.width * 0.75, options.width * 0.75);
-  renderPieChart(d3.select('#dropout-thoughts'), DROPOUT_THOUGHTS, options.width * 0.75, options.width * 0.75);
-  renderPieChart(d3.select('#se21-grad'), SE21_GRAD, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#countries-visited'),COUNTRIES_VISITED,options.width,250,false); 
+  //renderPieChart(d3.select('#transfer-thoughts'), TRANSFER_THOUGHTS, options.width * 0.75, options.width * 0.75);
+ // renderPieChart(d3.select('#dropout-thoughts'), DROPOUT_THOUGHTS, options.width * 0.75, options.width * 0.75);
+  //renderPieChart(d3.select('#se21-grad'), SE21_GRAD, options.width * 0.75, options.width * 0.75);
 }
 
 function renderFuture(options) {
-  drawWordCloud(d3.select('#ft-company'), FULL_TIME_COMPANY, options);
+  //drawWordCloud(d3.select('#ft-company'), FULL_TIME_COMPANY, options);
 
   renderPieChart(d3.select('#coop-conversion'), COOP_CONVERSION, options.width * 0.75, options.width * 0.75);
   renderPieChart(d3.select('#cont-fydp'), CONT_FYDP, options.width * 0.75, options.width * 0.75);
-  renderPieChart(d3.select('#peng'), PENG, options.width * 0.75, options.width * 0.75);
-  renderPieChart(d3.select('#post-return-home'), POST_RETURN_HOME, options.width * 0.75, options.width * 0.75);
-
-  renderHorizontalBarChat(d3.select('#post-grad'), POST_GRAD, options.width, 150, true);
-  renderHorizontalBarChat(d3.select('#post-location'), POST_LOCATION, options.width, 180, true);
-  renderHorizontalBarChat(d3.select('#motivation'), MOTIVATIONS, options.width, 180, true);
-  renderHorizontalBarChat(d3.select('#post-contentness'), POST_CONTENTNESS, options.width, 180, false);
-
-  renderHistogram(d3.select('#ft-total'),
-    FULL_TIME_COMPENSATION.TOTAL,
-    options.width,
-    200,
-    {
-      binCount: 8,
-      yAxisTitle: 'Count',
-      xAxisTitle: 'CAD (thousands)'
-    }
-  );
-  renderHistogram(d3.select('#ft-hourly'),
-    FULL_TIME_COMPENSATION.HOURLY,
-    options.width,
-    200,
-    {
-      binCount: 5,
-      yAxisTitle: 'Count',
-      xAxisTitle: 'CAD'
-    }
-  );
-  renderHistogram(d3.select('#ft-stock'),
-    FULL_TIME_COMPENSATION.STOCK,
-    options.width,
-    200,
-    {
-      binCount: 6,
-      yAxisTitle: 'Count',
-      xAxisTitle: 'CAD (thousands)'
-    }
-  );
-  renderHistogram(d3.select('#ft-signing'),
-    FULL_TIME_COMPENSATION.SIGNING,
-    options.width,
-    200,
-    {
-      binCount: 6,
-      yAxisTitle: 'Count',
-      xAxisTitle: 'CAD (thousands)'
-    }
-  );
+  //renderPieChart(d3.select('#peng'), PENG, options.width * 0.75, options.width * 0.75);
+  //renderPieChart(d3.select('#post-return-home'), POST_RETURN_HOME, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#high-school-experience'), HS_EXPERIENCE,options.width,360,false);
+  //renderHorizontalBarChat(d3.select('#post-grad'), POST_GRAD, options.width, 150, true);
+  //renderHorizontalBarChat(d3.select('#post-location'), POST_LOCATION, options.width, 180, true);
+  //renderHorizontalBarChat(d3.select('#motivation'), MOTIVATIONS, options.width, 180, true);
+  renderHorizontalBarChat(d3.select('#post-contentness'), POST_CONTENTNESS, options.width, 360, true);
+  renderPieChart(d3.select("#vietnam-future"),VIETNAM_FUTURE,options.width*0.75,options.width*0.75)
+  //renderHistogram(d3.select('#ft-total'),
+  // FULL_TIME_COMPENSATION.TOTAL,
+  //   options.width,
+  //   200,
+  //   {
+  //     binCount: 8,
+  //     yAxisTitle: 'Count',
+  //     xAxisTitle: 'CAD (thousands)'
+  //   }
+  // );
+  // renderHistogram(d3.select('#ft-hourly'),
+  //   FULL_TIME_COMPENSATION.HOURLY,
+  //   options.width,
+  //   200,
+  //   {
+  //     binCount: 5,
+  //     yAxisTitle: 'Count',
+  //     xAxisTitle: 'CAD'
+  //   }
+  // );
+  // renderHistogram(d3.select('#ft-stock'),
+  //   FULL_TIME_COMPENSATION.STOCK,
+  //   options.width,
+  //   200,
+  //   {
+  //     binCount: 6,
+  //     yAxisTitle: 'Count',
+  //     xAxisTitle: 'CAD (thousands)'
+  //   }
+  // );
+  // renderHistogram(d3.select('#ft-signing'),
+  //   FULL_TIME_COMPENSATION.SIGNING,
+  //   options.width,
+  //   200,
+  //   {
+  //     binCount: 6,
+  //     yAxisTitle: 'Count',
+  //     xAxisTitle: 'CAD (thousands)'
+  //   }
+  // );
 }
 
 function renderTransfers(options) {

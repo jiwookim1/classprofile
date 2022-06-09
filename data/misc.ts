@@ -57,6 +57,25 @@ let REDDIT_USAGE = [{
   "value": 0
 }]
 
+let COUNTRIES_VISITED=[{
+  "name":"0",
+  "value":3
+},{
+  "name":"1",
+  "value":5
+},{
+  "name":"2",
+  "value":3
+},{
+  "name":"8",
+  "value":1
+},{
+  "name":"10",
+  "value":4
+},{
+  "name":">10",
+  "value":6
+}]
 let CRYING = [{
   "name": "0",
   "value": 0
@@ -77,37 +96,12 @@ let CRYING = [{
   "value": 3
 }]
 
-let TRANSFER_THOUGHTS = [{
-  "name": "Yes",
-  "value": 29,
-  }, {
-  "name": "No",
-  "value": 21
-}]
-
-let DROPOUT_THOUGHTS = [{
-  "name": "Yes",
-  "value": 4,
-  }, {
-  "name": "No",
-  "value": 46
-}]
-
-let SE21_GRAD = [{
-  "name": "Yes",
-  "value": 44,
-  }, {
-  "name": "No",
-  "value": 6
-}]
 
 export {
   BURNOUT,
   FIGHTS,
   REDDIT_USAGE,
   CRYING,
-  TRANSFER_THOUGHTS,
-  DROPOUT_THOUGHTS,
-  SE21_GRAD,
-  SOCIAL_MEDIA
+  SOCIAL_MEDIA,
+  COUNTRIES_VISITED
 }
