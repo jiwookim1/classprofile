@@ -78,23 +78,23 @@ let COUNTRIES_VISITED=[{
 }]
 let CRYING = [{
   "name": "0",
-  "value": 0
+  "value": 4
   }, {
   "name": "1",
-  "value": 29
+  "value": 5
   }, {
   "name": "2",
-  "value": 15
-  }, {
-  "name": "3",
-  "value": 2
-  }, {
-  "name": "4",
+  "value": 3
+  },{
+  "name": "8",
   "value": 1
   }, {
-  "name": "5",
-  "value": 3
-}]
+  "name": "10",
+  "value": 4
+  }, {
+  "name": ">20",
+  "value": 6
+  }]
 
 
 export {

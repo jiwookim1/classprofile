@@ -25,7 +25,7 @@ import { BUDGET, INVEST, RESP, SCHOOL_EXPENSES, NEW_DEBT, LOANS } from './data/f
 import {SICK, OHIP, MENTAL_HEALTH, MENTAL_HEALTH_ISSUES, EXERCISE_FREQ, INTRAMURALS, EXERCISE_TYPE, EXERCISE_WORDS, WEIGHT, RECREATIONAL_SUBSTANCES, IMPOSTER_SYNDROME, IMPOSTER_SYNDROME_NOW} from './data/health';
 import { EXCHANGE, EXCHANGE_GEO_DATA } from './data/exchange';
 
-let ethnicity = ["ethnicity-all", "ethnicity-women", "ethnicity-men"];
+//let ethnicity = ["ethnicity-all", "ethnicity-women", "ethnicity-men"];
 let campus_location_term_pre = ["loc-1a", "loc-1b", "loc-2a", "loc-2b","loc-3a", "loc-3b"];
 let campus_location_term_post = ["loc-4a", "loc-4b"];
 let enriched_vs_grades = ["enriched-overall", "enriched-first-year"];
@@ -42,29 +42,6 @@ const friends_groups = {
   'friends-loss-study': 'Lost over study term'
 };
 
-const coop_ratings = {
-  'rating-outstanding': 'Outstanding',
-  'rating-excellent': 'Excellent',
-  'rating-very-good': 'Very Good',
-  'rating-satisfactory': 'Satisfactory'
-};
-
-const coop_types = {
-  'coop-swe': 'Software Engineering / Web Developer',
-  'coop-qa': 'QA / Testing',
-  'coop-devops': 'DevOps',
-  'coop-data-science': 'Data Science',
-  'coop-research': 'Research',
-  'coop-others': 'Others',
-};
-
-const coop_breakdown_legend = {
-  'coop-app-num': 'Waterlooworks App.',
-  'coop-app-num-ext': 'External App.',
-  'coop-interviews': 'Interviews',
-  'coop-offers': 'Offers',
-};
-
 const siblings_parents_legend = {
   'siblings-inc-zero': 'High School',
   'siblings-inc-one': 'Bachelors/College',
@@ -73,11 +50,6 @@ const siblings_parents_legend = {
   
 };
 
-const coop_jobs = {
-  'coop-first-round': 'First Round',
-  'coop-continuous': 'Continuous',
-  'coop-external': 'External',
-};
 
 window.onload = () => {
   let options = {
@@ -94,13 +66,13 @@ window.onload = () => {
   renderFuture(options);
   renderRelationships(options);
   setActive(0);
-  setMultiBarActive("ethnicity-all", ethnicity);
+  //setMultiBarActive("ethnicity-all", ethnicity);
   setMultiBarActive("loc-1a", campus_location_term_pre);
   setMultiBarActive("loc-4a", campus_location_term_post);
   setMultiBarActive("enriched-overall", enriched_vs_grades);
   setMultiBarActive("admission-salary-overall", admission_salary);
   setMultiBarActive("entrance-overall", entrance_vs_grades);
-  //setMultiBarActive("work-location-0", work_location);
+  setMultiBarActive("work-location-0", work_location);
   setupListeners();
 }
 
@@ -114,59 +86,59 @@ function setupListeners() {
     }
   }
 
-  let ethnicityItems = document.getElementsByClassName('ethnicity-item');
-  for (let i = 0; i < ethnicityItems.length; i++) {
-    let j = ethnicity[i];
-    (ethnicityItems[i] as any).onclick = function() {
-      togglePressedForButtonItems(this, ethnicityItems);
-      setMultiBarActive(j, ethnicity);
-    }
-  }
+  // let ethnicityItems = document.getElementsByClassName('ethnicity-item');
+  // for (let i = 0; i < ethnicityItems.length; i++) {
+  //   let j = ethnicity[i];
+  //   (ethnicityItems[i] as any).onclick = function() {
+  //     togglePressedForButtonItems(this, ethnicityItems);
+  //     setMultiBarActive(j, ethnicity);
+  //   }
+  // }
   
-  let locPreItems = document.getElementsByClassName('loc-pre-item');
-  for (let i = 0; i < locPreItems.length; i++) {
-    let j = campus_location_term_pre[i];
-    (locPreItems[i] as any).onclick = function() {
-      togglePressedForButtonItems(this, locPreItems);
-      setMultiBarActive(j, campus_location_term_pre);
-    }
-  }
+  // let locPreItems = document.getElementsByClassName('loc-pre-item');
+  // for (let i = 0; i < locPreItems.length; i++) {
+  //   let j = campus_location_term_pre[i];
+  //   (locPreItems[i] as any).onclick = function() {
+  //     togglePressedForButtonItems(this, locPreItems);
+  //     setMultiBarActive(j, campus_location_term_pre);
+  //   }
+  // }
 
-  let locPostItems = document.getElementsByClassName('loc-post-item');
-  for (let i = 0; i < locPostItems.length; i++) {
-    let j = campus_location_term_post[i];
-    (locPostItems[i] as any).onclick = function() {
-      togglePressedForButtonItems(this, locPostItems);
-      setMultiBarActive(j, campus_location_term_post);
-    }
-  }
+  // let locPostItems = document.getElementsByClassName('loc-post-item');
+  // for (let i = 0; i < locPostItems.length; i++) {
+  //   let j = campus_location_term_post[i];
+  //   (locPostItems[i] as any).onclick = function() {
+  //     togglePressedForButtonItems(this, locPostItems);
+  //     setMultiBarActive(j, campus_location_term_post);
+  //   }
+  // }
 
-  let friendsGainItems = document.getElementsByClassName('friends-gain-item');
-  for (let i = 0; i < friendsGainItems.length; i++) {
-    let currentClass = Object.keys(friends_groups)[i];
-    (friendsGainItems[i] as any).onclick = function() {
-      this.classList.toggle('pressed');
-      const isActive = this.classList.contains('pressed');
-      let items = document.getElementsByClassName(currentClass);
-      for (let j = 0; j < items.length; j++) {
-        if (isActive) {
-          (items[j] as any).style.visibility = 'initial';
-        } else {
-          (items[j] as any).style.visibility = 'hidden';
-        }
-      }
-      // setMultiBarActive(currentClass, Object.keys(friends_groups));
-    }
-  }
+  // let friendsGainItems = document.getElementsByClassName('friends-gain-item');
+  // for (let i = 0; i < friendsGainItems.length; i++) {
+  //   let currentClass = Object.keys(friends_groups)[i];
+  //   (friendsGainItems[i] as any).onclick = function() {
+  //     this.classList.toggle('pressed');
+  //     const isActive = this.classList.contains('pressed');
+  //     let items = document.getElementsByClassName(currentClass);
+  //     for (let j = 0; j < items.length; j++) {
+  //       if (isActive) {
+  //         (items[j] as any).style.visibility = 'initial';
+  //       } else {
+  //         (items[j] as any).style.visibility = 'hidden';
+  //       }
+  //     }
+  //     // setMultiBarActive(currentClass, Object.keys(friends_groups));
+  //   }
+  // }
 
-  let enrichedGradesItems = document.getElementsByClassName('enriched-grades-item');
-  for (let i = 0; i < enrichedGradesItems.length; i++) {
-    let j = enriched_vs_grades[i];
-    (enrichedGradesItems[i] as any).onclick = function() {
-      togglePressedForButtonItems(this, enrichedGradesItems);
-      setMultiBarActive(j, enriched_vs_grades);
-    }
-  }
+  // let enrichedGradesItems = document.getElementsByClassName('enriched-grades-item');
+  // for (let i = 0; i < enrichedGradesItems.length; i++) {
+  //   let j = enriched_vs_grades[i];
+  //   (enrichedGradesItems[i] as any).onclick = function() {
+  //     togglePressedForButtonItems(this, enrichedGradesItems);
+  //     setMultiBarActive(j, enriched_vs_grades);
+  //   }
+  // }
 
   let admissionSalary = document.getElementsByClassName('admission-salary-item');
   for (let i = 0; i < admissionSalary.length; i++) {
@@ -177,14 +149,14 @@ function setupListeners() {
     }
   }
   
-  let entranceGradesItems = document.getElementsByClassName('entrance-grades-item');
-  for (let i = 0; i < entranceGradesItems.length; i++) {
-    let j = entrance_vs_grades[i];
-    (entranceGradesItems[i] as any).onclick = function() {
-      togglePressedForButtonItems(this, entranceGradesItems);
-      setMultiBarActive(j, entrance_vs_grades);
-    }
-  }
+  // let entranceGradesItems = document.getElementsByClassName('entrance-grades-item');
+  // for (let i = 0; i < entranceGradesItems.length; i++) {
+  //   let j = entrance_vs_grades[i];
+  //   (entranceGradesItems[i] as any).onclick = function() {
+  //     togglePressedForButtonItems(this, entranceGradesItems);
+  //     setMultiBarActive(j, entrance_vs_grades);
+  //   }
+  // }
 
   let workLocationItems = document.getElementsByClassName('work-location-item');
   for (let i = 0; i < workLocationItems.length; i++) {
@@ -331,29 +303,7 @@ function renderCoop(options) {
    // yAxisTitle: 'Hourly compensation',
    // tickFormat: (d) => { return '$' + d; }
   //});
-  renderLineChart(d3.select('#work-location'), WORK_LOCATION, options.fullWidth, 500, {
-    toggle: 'work-location',
-    lineLabels: [{
-      'x': 'E',
-      'value': 6,
-      'location': 'AL'
-    }, {
-      'x': 'E',
-      'value': 0,
-      'location': 'AS'
-    }, {
-      'x': 'E',
-      'value': 3,
-      'location': 'IG2'
-    }, {
-      'x': 'E',
-      'value': 4,
-      'location': 'IG1'
-    }],
-    xAxisTitle: 'Average grade',
-    yAxisTitle: 'Proportion of students with the grade',
-    tickFormat: (d) => { return d + '%'; }
-  });
+  
   //renderHorizontalBarChat(d3.select('#favourite-location'), FAVOURITE_LOCATION, options.width, 240, true);
   // renderBoxPlot(d3.select('#age-salary'), AGE_SALARY, options.width, 280, {
   //   yAxisTitle: 'Average first 3 co-op hourly salary in CAD',
@@ -440,6 +390,29 @@ function renderLifestyle(options) {
 }
 
 function renderAcademics(options) {
+  renderLineChart(d3.select('#work-location'), WORK_LOCATION, options.fullWidth, 500, {
+    toggle: 'work-location',
+    lineLabels: [{
+      'x': 'E',
+      'value': 6,
+      'location': 'AL'
+    }, {
+      'x': 'E',
+      'value': 0,
+      'location': 'AS'
+    }, {
+      'x': 'E',
+      'value': 3,
+      'location': 'IG2'
+    }, {
+      'x': 'E',
+      'value': 4,
+      'location': 'IG1'
+    }],
+    xAxisTitle: 'Average grade',
+    yAxisTitle: 'Proportion of students with the grade',
+    tickFormat: (d) => { return d + '%'; }
+  });
   renderMultiSeriesHorizontalBarChat(d3.select('#campus-location-pre'), CAMPUS_LOCATION_PRE, 400, 500, false, {"loc-1a": 0, "loc-1b": 1, "loc-2a": 2, "loc-2b": 3,"loc-3a": 4, "loc-3b": 5});
   renderMultiSeriesHorizontalBarChat(d3.select('#campus-location-post'), CAMPUS_LOCATION_POST, 400, 300, false, {"loc-4a": 0, "loc-4b": 1});
   drawWordCloud(d3.select('#prof-cloud'), FAVOURITE_PROF_COUNT, options);
@@ -503,7 +476,7 @@ function renderAcademics(options) {
 }
 
 function renderBackground(options) {
-  renderMultiSeriesHorizontalBarChat(d3.select('#ethnicity'), ETHNICITY, 400, 300, true, {"ethnicity-all": 0, "ethnicity-women": 1, "ethnicity-men": 2});
+  //renderMultiSeriesHorizontalBarChat(d3.select('#ethnicity'), ETHNICITY, 400, 300, true, {"ethnicity-all": 0, "ethnicity-women": 1, "ethnicity-men": 2});
   renderHorizontalBarChat(d3.select('#parent-education'), PARENT_EDUCATION, options.width, 280, true);
   renderPieChart(d3.select('#gender'), GENDER, options.width * 0.75, options.width * 0.75);
   renderPieChart(d3.select('#year-of-birth'), YEAR_OF_BIRTH, options.width * 0.75, options.width * 0.75);
@@ -711,58 +684,58 @@ function renderRelationships(options) {
   );
 }
 
-function renderExchange(options) {
-  renderPieChart(d3.select('#exchange-participation'), EXCHANGE.PARTICIPATION, options.width * 0.75, options.width * 0.75);
-  renderHorizontalBarChat(d3.select('#exchange-no-reasons'),
-    EXCHANGE.NO_REASON,
-    options.fullWidth,
-    300,
-    true
-  );
+// function renderExchange(options) {
+//   renderPieChart(d3.select('#exchange-participation'), EXCHANGE.PARTICIPATION, options.width * 0.75, options.width * 0.75);
+//   renderHorizontalBarChat(d3.select('#exchange-no-reasons'),
+//     EXCHANGE.NO_REASON,
+//     options.fullWidth,
+//     300,
+//     true
+//   );
 
-  // exchange map handlers
-  function onMouseOver(data) {
-    if (data.properties.schools) {
-      d3.select(this)
-        .attr('fill', () => '#ffe2b5');
-    }
-  }
-  function onMouseOut(data) {
-    if (data.properties.schools) {
-      d3.select(this)
-        .attr('fill', '#ffb84d');
-    } else {
-      d3.select(this)
-      .attr('fill', '#c3d6d2');
-    }
-  }
-  function onClick(data) {
-    const props = data.properties;
-    let exchangeStr = `<h5>${props.name}</h5>`;
-    if (props.schools) {
-      props.schools.forEach((school) => {
-        exchangeStr += `<div class="hvb"/> - ${school.uni_name} (${school.uni_abbrev}): ${school.count}`;
-      });
-    } else {
-      exchangeStr += `<div class="hvb"/> No respondents went on exchange in this country.`
-    }
-    d3.select("#exchange-map-text").html(exchangeStr);
-  }
+//   // exchange map handlers
+//   function onMouseOver(data) {
+//     if (data.properties.schools) {
+//       d3.select(this)
+//         .attr('fill', () => '#ffe2b5');
+//     }
+//   }
+//   function onMouseOut(data) {
+//     if (data.properties.schools) {
+//       d3.select(this)
+//         .attr('fill', '#ffb84d');
+//     } else {
+//       d3.select(this)
+//       .attr('fill', '#c3d6d2');
+//     }
+//   }
+//   function onClick(data) {
+//     const props = data.properties;
+//     let exchangeStr = `<h5>${props.name}</h5>`;
+//     if (props.schools) {
+//       props.schools.forEach((school) => {
+//         exchangeStr += `<div class="hvb"/> - ${school.uni_name} (${school.uni_abbrev}): ${school.count}`;
+//       });
+//     } else {
+//       exchangeStr += `<div class="hvb"/> No respondents went on exchange in this country.`
+//     }
+//     d3.select("#exchange-map-text").html(exchangeStr);
+//   }
 
-  renderGeographicMap(
-    d3.select('#exchange-countries-map'), EXCHANGE_GEO_DATA,
-    options.fullWidth, options.fullWidth * 0.45,
-    {
-      zoomThreshold: [0.5, 20],
-      scale: 250,
-      fillColourFunction: (data) => {
-        if (data.properties.schools) {
-          return '#ffb84d';
-        }
-        return '#c3d6d2';
-      },
-      onMouseOver,
-      onMouseOut,
-      onClick,
-    });
-}
+//   renderGeographicMap(
+//     d3.select('#exchange-countries-map'), EXCHANGE_GEO_DATA,
+//     options.fullWidth, options.fullWidth * 0.45,
+//     {
+//       zoomThreshold: [0.5, 20],
+//       scale: 250,
+//       fillColourFunction: (data) => {
+//         if (data.properties.schools) {
+//           return '#ffb84d';
+//         }
+//         return '#c3d6d2';
+//       },
+//       onMouseOver,
+//       onMouseOut,
+//       onClick,
+//     });
+// }
