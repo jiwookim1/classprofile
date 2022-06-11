@@ -10,29 +10,28 @@ import { renderMultiSeriesBoxPlot } from './shared/multiseriesboxplot.js';
 import * as util from './shared/utils';
 import { renderDotPlot, renderBinnedDotLine } from './shared/dotplot.js';
 import { renderHistogram } from './shared/histogram.js';
-import { renderGeographicMap } from './shared/geographicmap.js';
+//import { renderGeographicMap } from './shared/geographicmap.js';
 
 import { TRANSFERRED,TERM_TRANSFERRED,REASONS_TRANSFERRED, DISLIKED_COURSES_TRANSFERRED,REGRET_TRANSFFERED } from './data/transfers'
-import { EXTRACURRICULARS, GROCERY_STORES, TRAVEL_LOCATIONS, RESTAURANTS, SLEEP_TIME, SLEEP_DURATION, COOKING_FREQUENCY, EATING_OUT_FREQUENCY, FAVOURITE_EXERCISE, DESIGN_TEAM, PARTIES, HAPPY_THINGS, NEW_HOBBIES, PROGRAMMING_LANGUAGE, EDITOR, MOBILE_OS,LEADERSHIP_POSITION } from './data/lifestyle';
-import { FAVOURITE_MANDATORY, FAVOURITE_ELECTIVE, DISLIKED_MANDATORY, ATTENDANCE, GRADES, PARENT_GRADES, ATTENDANCE_GRADE, CAMPUS_LOCATION_PRE, CAMPUS_LOCATION_POST, FAVOURITE_PROF_COUNT, FAILING, OPTIONS, OVERLOADING, OVERLOADING_REASONS, LARGEST_WORKLOAD, TRANSFER_FROM, ENRICHED_VS_GRADES, SLEEP_VS_GRADES, ENTRANCE_VS_GRADES, GRADES_OFFICIAL } from './data/academics';
-import { PARENT_EDUCATION, ETHNICITY, GENDER, YEAR_OF_BIRTH, SEXUAL_ORIENTATION, FAMILY_INCOME, SIBLINGS, MOTHER_TONGUE,  CAT_OR_DOG, NUM_LANGUAGE, LANGUAGE_KNOWN, SIBLINGS_PARENTS } from './data/background';
-import { ORIGINAL, CHOOSE_PROGRAM, GENDER_RATING } from './data/outcome';
-import { SALARY, WORK_LOCATION, FAVOURITE_LOCATION, HACKATHON_SALARY, SIDE_SALARY, ADMISSION_SALARY, COMPANY_WORK_COUNT, FAVOURITE_COMPANIES, GRADE_SALARY, GENDER_SALARY,LATE_INTERVIEWER, LATE_INTERVIEW, MISSED_INTERVIEW, FAVOURITE_COOP, FAVOURITE_COOP_REASON, COOP_RATINGS, COOP_TYPES, COOP_BREAKDOWN, COOP_JOBS } from './data/coop';
+import { EXTRACURRICULARS, TRAVEL_LOCATIONS, RESTAURANTS, SLEEP_TIME, SLEEP_DURATION, COOKING_FREQUENCY, EATING_OUT_FREQUENCY, DESIGN_TEAM, PARTIES, HAPPY_THINGS, NEW_HOBBIES, LEADERSHIP_POSITION } from './data/lifestyle';
+import { FAVOURITE_MANDATORY, FAVOURITE_ELECTIVE, DISLIKED_MANDATORY, ATTENDANCE, GRADES, PARENT_GRADES, ATTENDANCE_GRADE,  FAVOURITE_PROF_COUNT, FAILING, OPTIONS, OVERLOADING, OVERLOADING_REASONS, LARGEST_WORKLOAD, TRANSFER_FROM, SLEEP_VS_GRADES, GRADES_OFFICIAL } from './data/academics';
+import { PARENT_EDUCATION, GENDER, YEAR_OF_BIRTH, SEXUAL_ORIENTATION, SIBLINGS, MOTHER_TONGUE,  CAT_OR_DOG, NUM_LANGUAGE, LANGUAGE_KNOWN, SIBLINGS_PARENTS } from './data/background';
+import { CHOOSE_PROGRAM, GENDER_RATING } from './data/outcome';
+import { WORK_LOCATION, COMPANY_WORK_COUNT, FAVOURITE_COMPANIES } from './data/coop';
 import { BURNOUT, FIGHTS, REDDIT_USAGE, CRYING, SOCIAL_MEDIA,COUNTRIES_VISITED } from './data/misc';
-import { MOTIVATIONS, FULL_TIME_COMPENSATION, POST_RETURN_HOME, POST_CONTENTNESS, COOP_CONVERSION, FULL_TIME_COMPANY, CONT_FYDP, PENG, HS_EXPERIENCE,VIETNAM_FUTURE } from './data/future';
+import { POST_CONTENTNESS, COOP_CONVERSION, CONT_FYDP, HS_EXPERIENCE,VIETNAM_FUTURE } from './data/future';
 import { CLOSE_FRIENDS, FAMILY, FRIENDSHIPS, ROMANCE, SEPARATE } from './data/relationships';
 import { BUDGET, INVEST, RESP, SCHOOL_EXPENSES, NEW_DEBT, LOANS } from './data/finances';
-import {SICK, OHIP, MENTAL_HEALTH, MENTAL_HEALTH_ISSUES, EXERCISE_FREQ, INTRAMURALS, EXERCISE_TYPE, EXERCISE_WORDS, WEIGHT, RECREATIONAL_SUBSTANCES, IMPOSTER_SYNDROME, IMPOSTER_SYNDROME_NOW} from './data/health';
-import { EXCHANGE, EXCHANGE_GEO_DATA } from './data/exchange';
+import {SICK, OHIP, MENTAL_HEALTH, MENTAL_HEALTH_ISSUES, EXERCISE_FREQ, INTRAMURALS, EXERCISE_WORDS, WEIGHT, RECREATIONAL_SUBSTANCES} from './data/health';
+//import { EXCHANGE, EXCHANGE_GEO_DATA } from './data/exchange';
 
 //let ethnicity = ["ethnicity-all", "ethnicity-women", "ethnicity-men"];
-let campus_location_term_pre = ["loc-1a", "loc-1b", "loc-2a", "loc-2b","loc-3a", "loc-3b"];
-let campus_location_term_post = ["loc-4a", "loc-4b"];
-let enriched_vs_grades = ["enriched-overall", "enriched-first-year"];
-let admission_salary = ['admission-salary-overall','admission-salary-first-year'];
-let entrance_vs_grades = ["entrance-overall", "entrance-first-year"];
-let work_location = ["work-location-0", "work-location-1", "work-location-2", "work-location-3", "work-location-4", "work-location-5",
-"work-location-6", "work-location-7", "work-location-8", "work-location-9", "work-location-10"];
+//let campus_location_term_pre = ["loc-1a", "loc-1b", "loc-2a", "loc-2b","loc-3a", "loc-3b"];
+//let campus_location_term_post = ["loc-4a", "loc-4b"];
+//let enriched_vs_grades = ["enriched-overall", "enriched-first-year"];
+//let admission_salary = ['admission-salary-overall','admission-salary-first-year'];
+//let entrance_vs_grades = ["entrance-overall", "entrance-first-year"];
+let work_location = ["work-location-0", "work-location-1", "work-location-2", "work-location-3", "work-location-4"];
 let concise_version = false;
 
 const friends_groups = {
@@ -57,8 +56,9 @@ window.onload = () => {
     fullWidth: (document.querySelector('div.full') as any).offsetWidth,
     isMobile: util.isMobile()
   };
+  
   renderLifestyle(options);
-  renderCoop(options);
+  //renderCoop(options);
   renderAcademics(options);
   renderBackground(options);
   renderHealth(options);
@@ -66,14 +66,15 @@ window.onload = () => {
   renderFuture(options);
   renderRelationships(options);
   setActive(0);
-  //setMultiBarActive("ethnicity-all", ethnicity);
-  setMultiBarActive("loc-1a", campus_location_term_pre);
-  setMultiBarActive("loc-4a", campus_location_term_post);
-  setMultiBarActive("enriched-overall", enriched_vs_grades);
-  setMultiBarActive("admission-salary-overall", admission_salary);
-  setMultiBarActive("entrance-overall", entrance_vs_grades);
-  setMultiBarActive("work-location-0", work_location);
   setupListeners();
+  //setMultiBarActive("ethnicity-all", ethnicity);
+  //setMultiBarActive("loc-1a", campus_location_term_pre);
+  //setMultiBarActive("loc-4a", campus_location_term_post);
+  //setMultiBarActive("enriched-overall", enriched_vs_grades);
+  //setMultiBarActive("admission-salary-overall", admission_salary);
+  //setMultiBarActive("entrance-overall", entrance_vs_grades);
+  //setMultiBarActive("work-location-0", work_location);
+ 
 }
 
 function setupListeners() {
@@ -140,14 +141,14 @@ function setupListeners() {
   //   }
   // }
 
-  let admissionSalary = document.getElementsByClassName('admission-salary-item');
-  for (let i = 0; i < admissionSalary.length; i++) {
-    let j = admission_salary[i];
-    (admissionSalary[i] as any).onclick = function() {
-      togglePressedForButtonItems(this, admissionSalary);
-      setMultiBarActive(j, admission_salary);
-    }
-  }
+  // let admissionSalary = document.getElementsByClassName('admission-salary-item');
+  // for (let i = 0; i < admissionSalary.length; i++) {
+  //   let j = admission_salary[i];
+  //   (admissionSalary[i] as any).onclick = function() {
+  //     togglePressedForButtonItems(this, admissionSalary);
+  //     setMultiBarActive(j, admission_salary);
+  //   }
+  // }
   
   // let entranceGradesItems = document.getElementsByClassName('entrance-grades-item');
   // for (let i = 0; i < entranceGradesItems.length; i++) {
@@ -296,7 +297,7 @@ function drawWordCloud(elem, data, options, isFullWidth: boolean = false, height
   renderWordCloud(elem, wordcloudData, null, cloudWidth, cloudHeight);
 }
 
-function renderCoop(options) {
+//function renderCoop(options) {
   //drawCoopWordCloud(d3.select('#coop-cloud'), options);
   //renderBoxPlot(d3.select('#salary'), SALARY, options.width, 350, {
     //xAxisTitle: 'Co-op term #',
@@ -363,7 +364,7 @@ function renderCoop(options) {
   // {
   //   yAxisTitle: 'Percentage of respondents',
   // });
-}
+//}
 
 function renderLifestyle(options) {
   //renderHorizontalBarChat(d3.select('#programming-language'), PROGRAMMING_LANGUAGE, options.width, 400, true);
@@ -413,8 +414,8 @@ function renderAcademics(options) {
     yAxisTitle: 'Proportion of students with the grade',
     tickFormat: (d) => { return d + '%'; }
   });
-  renderMultiSeriesHorizontalBarChat(d3.select('#campus-location-pre'), CAMPUS_LOCATION_PRE, 400, 500, false, {"loc-1a": 0, "loc-1b": 1, "loc-2a": 2, "loc-2b": 3,"loc-3a": 4, "loc-3b": 5});
-  renderMultiSeriesHorizontalBarChat(d3.select('#campus-location-post'), CAMPUS_LOCATION_POST, 400, 300, false, {"loc-4a": 0, "loc-4b": 1});
+  //renderMultiSeriesHorizontalBarChat(d3.select('#campus-location-pre'), CAMPUS_LOCATION_PRE, 400, 500, false, {"loc-1a": 0, "loc-1b": 1, "loc-2a": 2, "loc-2b": 3,"loc-3a": 4, "loc-3b": 5});
+  //renderMultiSeriesHorizontalBarChat(d3.select('#campus-location-post'), CAMPUS_LOCATION_POST, 400, 300, false, {"loc-4a": 0, "loc-4b": 1});
   drawWordCloud(d3.select('#prof-cloud'), FAVOURITE_PROF_COUNT, options);
   renderHorizontalBarChat(d3.select('#failing'), FAILING, options.width, 100, false);
   renderHorizontalBarChat(d3.select('#options'), OPTIONS, options.width, 100, true);
@@ -440,14 +441,14 @@ function renderAcademics(options) {
     yAxisTitle: 'Cumulative average',
     xAxisTitle: 'Parents\' education',
   });
-  renderMultiSeriesBoxPlot(d3.select('#enriched-grades'), ENRICHED_VS_GRADES, options.width, 280, {
-    yAxisTitle: 'Cumulative average',
-    xAxisTitle: 'Enriched Programs',
-  }, {"enriched-overall": 0, "enriched-first-year": 1});
-  renderMultiSeriesBoxPlot(d3.select('#entrance-grades'), ENTRANCE_VS_GRADES, options.width, 280, {
-    yAxisTitle: 'Cumulative average',
-    // xAxisTitle: 'Enriched Program (EP)',
-  }, {"entrance-overall": 0, "entrance-first-year": 1});
+  // renderMultiSeriesBoxPlot(d3.select('#enriched-grades'), ENRICHED_VS_GRADES, options.width, 280, {
+  //   yAxisTitle: 'Cumulative average',
+  //   xAxisTitle: 'Enriched Programs',
+  // }, {"enriched-overall": 0, "enriched-first-year": 1});
+  // renderMultiSeriesBoxPlot(d3.select('#entrance-grades'), ENTRANCE_VS_GRADES, options.width, 280, {
+  //   yAxisTitle: 'Cumulative average',
+  //   // xAxisTitle: 'Enriched Program (EP)',
+  // }, {"entrance-overall": 0, "entrance-first-year": 1});
   renderBoxPlot(d3.select('#sleep-grades'), SLEEP_VS_GRADES, options.width, 280, {
     yAxisTitle: 'Cumulative average',
     xAxisTitle: 'Hours of Sleep',
@@ -622,66 +623,66 @@ function renderRelationships(options) {
     }
   );
 
-  renderHistogram(d3.select('#fam-physical'),
-    FAMILY.PHYSICAL_DAYS,
-    options.width,
-    200,
-    {
-      binCount: 10,
-      yAxisTitle: 'Count',
-      xAxisTitle: 'Days'
-    }
-  );
+  // renderHistogram(d3.select('#fam-physical'),
+  //   FAMILY.PHYSICAL_DAYS,
+  //   options.width,
+  //   200,
+  //   {
+  //     binCount: 10,
+  //     yAxisTitle: 'Count',
+  //     xAxisTitle: 'Days'
+  //   }
+  // );
 
-  renderBinnedDotLine(d3.select('#fam-distance'),
-    FAMILY.DISTANCE,
-    options.fullWidth,
-    400,
-    {
-      domain: [0, 13], // ignoring the last few values that skew the graph
-      binCount: 12,
-      fillColour: '#18bbc9',
-    }
-  );
+  // renderBinnedDotLine(d3.select('#fam-distance'),
+  //   FAMILY.DISTANCE,
+  //   options.fullWidth,
+  //   400,
+  //   {
+  //     domain: [0, 13], // ignoring the last few values that skew the graph
+  //     binCount: 12,
+  //     fillColour: '#18bbc9',
+  //   }
+  // );
 
   // friends section
-  renderGroupedBarChart(d3.select('#friends-gain-term'), FRIENDSHIPS.CUMULATIVE, options.fullWidth, 500, friends_groups,
-  {});
+  // renderGroupedBarChart(d3.select('#friends-gain-term'), FRIENDSHIPS.CUMULATIVE, options.fullWidth, 500, friends_groups,
+  // {});
 
   // romance section
-  renderHistogram(
-    d3.select('#romance-degree'), ROMANCE.DEGREE_NON_SINGLE,
-    options.fullWidth, 300,
-    {
-      binCount: 10,
-      yAxisTitle: 'Count',
-      xAxisTitle: 'Percentage (%) of degree (56 months)',
-    }
-  );
+  // renderHistogram(
+  //   d3.select('#romance-degree'), ROMANCE.DEGREE_NON_SINGLE,
+  //   options.fullWidth, 300,
+  //   {
+  //     binCount: 10,
+  //     yAxisTitle: 'Count',
+  //     xAxisTitle: 'Percentage (%) of degree (56 months)',
+  //   }
+  // );
 
-  renderHorizontalBarChat(d3.select('#romance-relationship-count'),
-    ROMANCE.RELATIONSHIP_COUNT,
-    options.width,
-    250,
-    false
-  );
+  // renderHorizontalBarChat(d3.select('#romance-relationship-count'),
+  //   ROMANCE.RELATIONSHIP_COUNT,
+  //   options.width,
+  //   250,
+  //   false
+  // );
   renderPieChart(d3.select('#romance-secest'), ROMANCE.SECEST, options.width * 0.75, options.width * 0.75);
   
-  renderBoxPlot(d3.select('#romance-sex'), ROMANCE.SEXUAL_PARTNERS, options.width, 280, {
-    yAxisTitle: 'Number of sexual partners',
-    xAxisTitle: 'Sexual activity',
-  });
+  // renderBoxPlot(d3.select('#romance-sex'), ROMANCE.SEXUAL_PARTNERS, options.width, 280, {
+  //   yAxisTitle: 'Number of sexual partners',
+  //   xAxisTitle: 'Sexual activity',
+  // });
   
   renderPieChart(d3.select('#fam-separate'), SEPARATE, options.width * 0.75, options.width * 0.75);
   renderHorizontalBarChat(d3.select('#close-friends'), CLOSE_FRIENDS, options.width, 250, false);
 
-  renderPieChart(d3.select('#romance-cheating'), ROMANCE.CHEATING, options.width * 0.75, options.width * 0.75);
-  renderHorizontalBarChat(d3.select('#romance-cheating-reasons'),
-    ROMANCE.CHEATING_REASONS,
-    options.width,
-    250,
-    false
-  );
+  // renderPieChart(d3.select('#romance-cheating'), ROMANCE.CHEATING, options.width * 0.75, options.width * 0.75);
+  // renderHorizontalBarChat(d3.select('#romance-cheating-reasons'),
+  //   ROMANCE.CHEATING_REASONS,
+  //   options.width,
+  //   250,
+  //   false
+  // );
 }
 
 // function renderExchange(options) {
