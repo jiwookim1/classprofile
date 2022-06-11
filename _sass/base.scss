@@ -9,7 +9,7 @@ $bg-4: #cbf6db;
 $bg-5: #ffe5d9;
 $bg-6: #e6e7ff;
 $bg-7: #ffe0e0;
-$bg-8: #e4f4f3; 
+$bg-8: #ffffff; 
 
 
 /* TYPOGRAPHY */
@@ -81,10 +81,10 @@ section {
 }
 
 .bg-cover {
-  /* background-image:url('../img/cover.png'); */
+  //background-image:url('../img/cover.jpg'); 
   background-repeat:no-repeat;
   background-size:cover;
-  background-color: rgb(235, 235, 20);
+  background-color: rgb(163, 222, 235);
   background-position: center center;
   height: 100vh;
   .content {
